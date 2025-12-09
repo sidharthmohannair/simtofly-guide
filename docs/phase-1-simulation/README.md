@@ -123,4 +123,4 @@ We're here to help! 🚁
 
 ---
 
-[← Back to Main Guide](../../README.md) | [Next: 1.1 Prerequisites →](1.1-prerequisites.md)
+[← Back to Home](../index.md) | [Next: 1.1 Prerequisites →](1.1-prerequisites.md)

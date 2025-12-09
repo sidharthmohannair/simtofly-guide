@@ -1,0 +1,121 @@
+site_name: SimToFly
+site_url: https://simtofly.github.io/simtofly-guide/
+site_author: Sidharth Mohan Nair
+site_description: >-
+  Complete beginner-friendly guide from ArduPilot SITL simulation to real 
+  drone flight with ROS2, MAVROS, and Gazebo
+
+repo_name: simtofly/simtofly-guide
+repo_url: https://github.com/simtofly/simtofly-guide
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  
+  logo: images/simtofly_logo_w.png
+  favicon: images/simtofly_logo_w.png
+  
+  icon:
+    repo: fontawesome/brands/github
+  
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    
+    - scheme: slate
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  
+  features:
+    - content.code.copy
+    - content.action.edit
+    - navigation.footer
+    - navigation.indexes
+    - navigation.instant      
+    - navigation.sections
+    - navigation.tabs
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.suggest
+    - toc.follow
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+      toc_depth: 2
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+plugins:
+  - search
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/simtofly
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/@sidharthmohannair9351
+
+# Navigation structure
+nav:
+  - Home: index.md
+  
+  - Phase 1 - Simulation:
+    - phase-1-simulation/README.md
+    - 1.1 Prerequisites: phase-1-simulation/1.1-prerequisites.md
+    - 1.2 Environment Setup: phase-1-simulation/1.2-environment-setup.md
+    - 1.3 ArduPilot SITL: phase-1-simulation/1.3-ardupilot-sitl.md
+    - 1.4 MAVProxy Basics: phase-1-simulation/1.4-mavproxy-basics.md
+    - 1.5 Gazebo Simulation: phase-1-simulation/1.5-gazebo-simulation.md
+    - 1.6 First Mission: phase-1-simulation/1.6-first-mission.md
+  
+  - Phase 2 - ROS2:
+    - phase-2-ros2/README.md
+  
+  - Phase 3 - Companion:
+    - phase-3-companion/README.md
+  
+  - Phase 4 - Hardware:
+    - phase-4-hardware/README.md
+  
+copyright: Copyright &copy; 2025 SimToFly - Created by Sidharth Mohan Nair
