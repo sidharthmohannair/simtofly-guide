@@ -1,0 +1,1858 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete beginner-friendly guide from ArduPilot SITL simulation to real  drone flight with ROS2, MAVROS, and Gazebo">
+      
+      
+        <meta name="author" content="Sidharth Mohan Nair">
+      
+      
+        <link rel="canonical" href="https://simtofly.github.io/simtofly-guide/phase-1-simulation/1.5-gazebo-simulation/">
+      
+      
+        <link rel="prev" href="../1.4-mavproxy-basics/">
+      
+      
+        <link rel="next" href="../1.6-first-mission/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../images/simtofly_logo_w.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>1.5 Gazebo Simulation - SimToFly</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#15-gazebo-simulation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="SimToFly" class="md-header__button md-logo" aria-label="SimToFly" data-md-component="logo">
+      
+  <img src="../../images/simtofly_logo_w.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SimToFly
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1.5 Gazebo Simulation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/simtofly/simtofly-guide" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    simtofly/simtofly-guide
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Phase 1 - Simulation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../phase-2-ros2/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Phase 2 - ROS2
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../phase-3-companion/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Phase 3 - Companion
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../phase-4-hardware/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Phase 4 - Hardware
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="SimToFly" class="md-nav__button md-logo" aria-label="SimToFly" data-md-component="logo">
+      
+  <img src="../../images/simtofly_logo_w.png" alt="logo">
+
+    </a>
+    SimToFly
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/simtofly/simtofly-guide" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    simtofly/simtofly-guide
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 1 - Simulation
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phase 1 - Simulation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.1-prerequisites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.1 Prerequisites
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.2-environment-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.2 Environment Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.3-ardupilot-sitl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.3 ArduPilot SITL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.4-mavproxy-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.4 MAVProxy Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.5 Gazebo Simulation
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.5 Gazebo Simulation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You'll Learn
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-gazebo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🤔 What is Gazebo?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-gazebo-harmonic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        �� Install Gazebo Harmonic
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-ardupilot-gazebo-plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔌 Install ArduPilot Gazebo Plugin
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#launch-sitl-with-gazebo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚁 Launch SITL with Gazebo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-flight-in-gazebo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎮 Test Flight in Gazebo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-gazebo-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎨 Understanding Gazebo Interface
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#different-gazebo-worlds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🌍 Different Gazebo Worlds
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verification-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 Verification Checklist
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-you-accomplished" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 What You Accomplished
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❓ Common Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🐛 Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 Additional Resources
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.6-first-mission/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.6 First Mission
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../phase-2-ros2/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2 - ROS2
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phase 2 - ROS2
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../phase-3-companion/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 3 - Companion
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phase 3 - Companion
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../phase-4-hardware/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 4 - Hardware
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phase 4 - Hardware
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You'll Learn
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-gazebo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🤔 What is Gazebo?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-gazebo-harmonic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        �� Install Gazebo Harmonic
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-ardupilot-gazebo-plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔌 Install ArduPilot Gazebo Plugin
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#launch-sitl-with-gazebo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚁 Launch SITL with Gazebo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-flight-in-gazebo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎮 Test Flight in Gazebo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-gazebo-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎨 Understanding Gazebo Interface
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#different-gazebo-worlds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🌍 Different Gazebo Worlds
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verification-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 Verification Checklist
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-you-accomplished" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 What You Accomplished
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❓ Common Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🐛 Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 Additional Resources
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/simtofly/simtofly-guide/edit/main/docs/phase-1-simulation/1.5-gazebo-simulation.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="15-gazebo-simulation">1.5 Gazebo Simulation<a class="headerlink" href="#15-gazebo-simulation" title="Permanent link">&para;</a></h1>
+<h2 id="what-youll-learn">What You'll Learn<a class="headerlink" href="#what-youll-learn" title="Permanent link">&para;</a></h2>
+<p>Add realistic 3D visualization to your drone simulations:
+- ✅ What Gazebo is and why we use it
+- ✅ Install Gazebo Harmonic
+- ✅ Install ArduPilot Gazebo plugin
+- ✅ Launch SITL with Gazebo visualization
+- ✅ Understand Gazebo interface
+- ✅ Control drone with 3D feedback
+- ✅ Verify physics simulation works</p>
+<p><strong>Time:</strong> 60-90 minutes</p>
+<hr />
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<p>Before starting, you must have completed:
+- ✅ <a href="../1.1-prerequisites/">1.1 Prerequisites and Setup</a>
+- ✅ <a href="../1.2-environment-setup/">1.2 Environment Setup</a>
+- ✅ <a href="../1.3-ardupilot-sitl/">1.3 ArduPilot SITL Installation</a>
+- ✅ <a href="../1.4-mavproxy-basics/">1.4 MAVProxy Command Line</a>
+- ✅ SITL launches and accepts commands
+- ✅ Can control drone via MAVProxy</p>
+<hr />
+<h2 id="what-is-gazebo">🤔 What is Gazebo?<a class="headerlink" href="#what-is-gazebo" title="Permanent link">&para;</a></h2>
+<p><strong>Gazebo</strong> = Advanced 3D robot simulator</p>
+<p>It provides:
+- <strong>Realistic physics</strong> — Gravity, inertia, collisions
+- <strong>3D visualization</strong> — See your drone in realistic environment
+- <strong>Sensor simulation</strong> — Camera, GPS, IMU, lidar
+- <strong>Environmental factors</strong> — Wind, lighting, terrain</p>
+<p><strong>Why add Gazebo to SITL?</strong></p>
+<p>SITL alone:
+- ❌ No visual feedback (just text/map)
+- ❌ No realistic physics
+- ❌ No sensor simulation</p>
+<p>SITL + Gazebo:
+- ✅ See drone in 3D world
+- ✅ Realistic flight physics
+- ✅ Test sensors before real hardware
+- ✅ Better understanding of behavior</p>
+<p><strong>Later (Phase 2):</strong> We'll add ROS2 sensors in Gazebo.</p>
+<hr />
+<h2 id="install-gazebo-harmonic">�� Install Gazebo Harmonic<a class="headerlink" href="#install-gazebo-harmonic" title="Permanent link">&para;</a></h2>
+<h3 id="why-gazebo-harmonic">Why Gazebo Harmonic?<a class="headerlink" href="#why-gazebo-harmonic" title="Permanent link">&para;</a></h3>
+<p><strong>Gazebo Harmonic</strong> (released 2024) is recommended by ArduPilot:
+- Latest stable release
+- Best Ubuntu 22.04 support
+- Active development and updates</p>
+<p><strong>Alternative:</strong> Gazebo Garden (LTS) — Also works, but Harmonic is newer.</p>
+<p><strong>Official guide:</strong> https://gazebosim.org/docs/harmonic/install_ubuntu/</p>
+<hr />
+<h3 id="add-gazebo-repository">Add Gazebo Repository<a class="headerlink" href="#add-gazebo-repository" title="Permanent link">&para;</a></h3>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>wget<span class="w"> </span>https://packages.osrfoundation.org/gazebo.gpg<span class="w"> </span>-O<span class="w"> </span>/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb [arch=</span><span class="k">$(</span>dpkg<span class="w"> </span>--print-architecture<span class="k">)</span><span class="s2"> signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable </span><span class="k">$(</span>lsb_release<span class="w"> </span>-cs<span class="k">)</span><span class="s2"> main&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/gazebo-stable.list<span class="w"> </span>&gt;<span class="w"> </span>/dev/null
+</span></code></pre></div></p>
+<p><strong>What this does:</strong> Adds official Gazebo package repository.</p>
+<hr />
+<h3 id="update-package-list">Update Package List<a class="headerlink" href="#update-package-list" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+</span></code></pre></div>
+<hr />
+<h3 id="install-gazebo-harmonic_1">Install Gazebo Harmonic<a class="headerlink" href="#install-gazebo-harmonic_1" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>gz-harmonic<span class="w"> </span>-y
+</span></code></pre></div>
+<p><strong>What this installs:</strong> Complete Gazebo Harmonic suite.</p>
+<p><strong>This takes:</strong> 5-10 minutes (downloads ~1-2GB).</p>
+<p><strong>Expected output:</strong>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Reading package lists... Done
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Building dependency tree... Done
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>...
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>Setting up gz-harmonic...
+</span></code></pre></div></p>
+<p>✅ <strong>Success:</strong> Installation completes without errors</p>
+<hr />
+<h3 id="verify-gazebo-installation">Verify Gazebo Installation<a class="headerlink" href="#verify-gazebo-installation" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>gz<span class="w"> </span>sim<span class="w"> </span>--version
+</span></code></pre></div>
+<p><strong>Expected output:</strong>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Gazebo Sim, version 8.x.x
+</span></code></pre></div></p>
+<p>✅ <strong>Success:</strong> Shows Gazebo Sim version 8.x (Harmonic)</p>
+<hr />
+<h3 id="test-gazebo-launch">Test Gazebo Launch<a class="headerlink" href="#test-gazebo-launch" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>gz<span class="w"> </span>sim
+</span></code></pre></div>
+<p><strong>What happens:</strong>
+- Gazebo window opens
+- Shows empty world
+- May take 10-20 seconds first launch</p>
+<p><strong>If window opens:</strong> ✅ Gazebo installed correctly</p>
+<p><strong>Close Gazebo:</strong> File → Exit (or Ctrl+C in terminal)</p>
+<hr />
+<h2 id="install-ardupilot-gazebo-plugin">🔌 Install ArduPilot Gazebo Plugin<a class="headerlink" href="#install-ardupilot-gazebo-plugin" title="Permanent link">&para;</a></h2>
+<h3 id="what-is-the-plugin">What is the Plugin?<a class="headerlink" href="#what-is-the-plugin" title="Permanent link">&para;</a></h3>
+<p>The <strong>ArduPilot Gazebo plugin</strong> connects:
+- ArduPilot SITL ↔ Gazebo simulator
+- Sends motor commands from ArduPilot to Gazebo
+- Sends sensor data from Gazebo to ArduPilot</p>
+<p><strong>Without plugin:</strong> SITL and Gazebo can't communicate.</p>
+<p><strong>Official guide:</strong> https://ardupilot.org/dev/docs/ros2-gazebo.html</p>
+<hr />
+<h3 id="install-dependencies">Install Dependencies<a class="headerlink" href="#install-dependencies" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>libgz-sim8-dev<span class="w"> </span>rapidjson-dev<span class="w"> </span>-y
+</span></code></pre></div>
+<p><strong>What these are:</strong>
+- <code>libgz-sim8-dev</code> — Gazebo development libraries
+- <code>rapidjson-dev</code> — JSON parsing (for plugin)</p>
+<hr />
+<h3 id="clone-ardupilot-gazebo-plugin">Clone ArduPilot Gazebo Plugin<a class="headerlink" href="#clone-ardupilot-gazebo-plugin" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nb">cd</span><span class="w"> </span>~/simtofly_ws
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ArduPilot/ardupilot_gazebo.git
+</span></code></pre></div>
+<p><strong>This takes:</strong> 1-2 minutes.</p>
+<hr />
+<h3 id="build-the-plugin">Build the Plugin<a class="headerlink" href="#build-the-plugin" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nb">cd</span><span class="w"> </span>~/simtofly_ws/ardupilot_gazebo
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>mkdir<span class="w"> </span>build<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>build
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>cmake<span class="w"> </span>..<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>RelWithDebInfo
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>make<span class="w"> </span>-j4
+</span></code></pre></div>
+<p><strong>Command breakdown:</strong>
+- <code>cmake ..</code> — Configure build system
+- <code>-DCMAKE_BUILD_TYPE=RelWithDebInfo</code> — Optimized build with debug info
+- <code>make -j4</code> — Build using 4 CPU cores</p>
+<p><strong>This takes:</strong> 5-10 minutes.</p>
+<p><strong>Expected output:</strong>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>-- Configuring done
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>-- Generating done
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>-- Build files written to: .../build
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>...
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>[100%] Built target ArduPilotPlugin
+</span></code></pre></div></p>
+<p>✅ <strong>Success:</strong> Shows "Built target ArduPilotPlugin"</p>
+<hr />
+<h3 id="configure-environment-variables">Configure Environment Variables<a class="headerlink" href="#configure-environment-variables" title="Permanent link">&para;</a></h3>
+<p>Add plugin to Gazebo's search path:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;export GZ_SIM_SYSTEM_PLUGIN_PATH=$HOME/simtofly_ws/ardupilot_gazebo/build:${GZ_SIM_SYSTEM_PLUGIN_PATH}&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;export GZ_SIM_RESOURCE_PATH=$HOME/simtofly_ws/ardupilot_gazebo/models:$HOME/simtofly_ws/ardupilot_gazebo/worlds:${GZ_SIM_RESOURCE_PATH}&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+</span></code></pre></div></p>
+<p><strong>What these do:</strong>
+- First line: Tells Gazebo where to find the plugin
+- Second line: Tells Gazebo where to find drone models and worlds</p>
+<hr />
+<h3 id="apply-changes">Apply Changes<a class="headerlink" href="#apply-changes" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nb">source</span><span class="w"> </span>~/.bashrc
+</span></code></pre></div>
+<hr />
+<h3 id="verify-environment-variables">Verify Environment Variables<a class="headerlink" href="#verify-environment-variables" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$GZ_SIM_SYSTEM_PLUGIN_PATH</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$GZ_SIM_RESOURCE_PATH</span>
+</span></code></pre></div>
+<p><strong>Expected output:</strong> Should show paths to your plugin directories.</p>
+<p>✅ <strong>Success:</strong> Paths displayed correctly</p>
+<hr />
+<h2 id="launch-sitl-with-gazebo">🚁 Launch SITL with Gazebo<a class="headerlink" href="#launch-sitl-with-gazebo" title="Permanent link">&para;</a></h2>
+<h3 id="start-gazebo-first">Start Gazebo First<a class="headerlink" href="#start-gazebo-first" title="Permanent link">&para;</a></h3>
+<p>Open <strong>Terminal 1:</strong>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>gz<span class="w"> </span>sim<span class="w"> </span>-v4<span class="w"> </span>-r<span class="w"> </span>iris_runway.sdf
+</span></code></pre></div></p>
+<p><strong>Command breakdown:</strong>
+- <code>gz sim</code> — Launch Gazebo simulator
+- <code>-v4</code> — Verbose output (helpful for debugging)
+- <code>-r</code> — Run simulation immediately (not paused)
+- <code>iris_runway.sdf</code> — Quadcopter on runway world</p>
+<p><strong>This takes:</strong> 10-20 seconds to load.</p>
+<p><strong>Expected result:</strong>
+- Gazebo window opens
+- Shows runway environment
+- Drone (iris quadcopter) visible on runway</p>
+<p>✅ <strong>Success:</strong> See drone in Gazebo world</p>
+<hr />
+<h3 id="start-sitl">Start SITL<a class="headerlink" href="#start-sitl" title="Permanent link">&para;</a></h3>
+<p>Open <strong>Terminal 2</strong> (keep Gazebo running):
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nb">cd</span><span class="w"> </span>~/simtofly_ws/ardupilot/ardupilot/ArduCopter
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>sim_vehicle.py<span class="w"> </span>-v<span class="w"> </span>ArduCopter<span class="w"> </span>-f<span class="w"> </span>gazebo-iris<span class="w"> </span>--model<span class="w"> </span>JSON<span class="w"> </span>--map<span class="w"> </span>--console
+</span></code></pre></div></p>
+<p><strong>Command breakdown:</strong>
+- <code>-v ArduCopter</code> — Vehicle type
+- <code>-f gazebo-iris</code> — Use Gazebo with iris model
+- <code>--model JSON</code> — Use JSON protocol for communication
+- <code>--map</code> — Open map window
+- <code>--console</code> — Open console window</p>
+<p><strong>This takes:</strong> 10-15 seconds.</p>
+<p><strong>Expected output:</strong>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>Starting SITL...
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>Waiting for JSON sensor data...
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>Received sensor data from Gazebo
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>...
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>APM: ArduCopter V4.5.7
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>...
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>STABILIZE&gt;
+</span></code></pre></div></p>
+<p>✅ <strong>Success:</strong> Shows "Received sensor data from Gazebo" and <code>STABILIZE&gt;</code> prompt</p>
+<hr />
+<h3 id="verify-connection">Verify Connection<a class="headerlink" href="#verify-connection" title="Permanent link">&para;</a></h3>
+<p><strong>In Gazebo window:</strong>
+- Drone should be sitting on runway
+- Propellers visible</p>
+<p><strong>In SITL console:</strong>
+- Shows flight mode (STABILIZE)
+- GPS status should be good</p>
+<p><strong>In map window:</strong>
+- Drone position displayed</p>
+<p>✅ <strong>Success:</strong> All windows show drone data</p>
+<hr />
+<h2 id="test-flight-in-gazebo">🎮 Test Flight in Gazebo<a class="headerlink" href="#test-flight-in-gazebo" title="Permanent link">&para;</a></h2>
+<h3 id="arm-and-takeoff">Arm and Takeoff<a class="headerlink" href="#arm-and-takeoff" title="Permanent link">&para;</a></h3>
+<p>In SITL terminal (Terminal 2):
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>mode<span class="w"> </span>GUIDED
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>arm<span class="w"> </span>throttle
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>takeoff<span class="w"> </span><span class="m">10</span>
+</span></code></pre></div></p>
+<p><strong>Watch in Gazebo:</strong>
+- Propellers start spinning
+- Drone lifts off ground
+- Climbs to 10 meters
+- Physics looks realistic (smooth acceleration)</p>
+<p><strong>This takes:</strong> 10-20 seconds to reach altitude.</p>
+<p>✅ <strong>Success:</strong> Drone flies in Gazebo, hovers at 10m</p>
+<hr />
+<h3 id="navigate-in-gazebo">Navigate in Gazebo<a class="headerlink" href="#navigate-in-gazebo" title="Permanent link">&para;</a></h3>
+<p><strong>Move forward (North):</strong>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>guided<span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>-10
+</span></code></pre></div></p>
+<p><strong>Watch in Gazebo:</strong>
+- Drone tilts forward
+- Moves to new position
+- Realistic flight dynamics</p>
+<hr />
+<h3 id="land">Land<a class="headerlink" href="#land" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>land
+</span></code></pre></div>
+<p><strong>Watch in Gazebo:</strong>
+- Drone descends smoothly
+- Touches down on runway
+- Propellers stop spinning</p>
+<p>✅ <strong>Success:</strong> Complete flight in 3D simulation</p>
+<hr />
+<h2 id="understanding-gazebo-interface">🎨 Understanding Gazebo Interface<a class="headerlink" href="#understanding-gazebo-interface" title="Permanent link">&para;</a></h2>
+<h3 id="main-window-elements">Main Window Elements<a class="headerlink" href="#main-window-elements" title="Permanent link">&para;</a></h3>
+<p><strong>Top toolbar:</strong>
+- Play/Pause button — Control simulation time
+- Real-time factor — Simulation speed (1.0 = real-time)
+- Step button — Advance one frame</p>
+<p><strong>Left panel:</strong>
+- World tree — List of objects in simulation
+- Entity details — Properties of selected object</p>
+<p><strong>3D viewport:</strong>
+- Main visualization area
+- Use mouse to navigate:
+  - <strong>Left-drag:</strong> Rotate view
+  - <strong>Middle-drag:</strong> Pan view
+  - <strong>Scroll:</strong> Zoom in/out
+  - <strong>Shift+Left-drag:</strong> Look around</p>
+<p><strong>Right panel:</strong>
+- Component inspector — Details of selected entity
+- Can modify properties during simulation</p>
+<hr />
+<h3 id="useful-view-controls">Useful View Controls<a class="headerlink" href="#useful-view-controls" title="Permanent link">&para;</a></h3>
+<p><strong>Reset camera view:</strong>
+- Click on drone in left panel
+- Press 'R' to focus camera on drone</p>
+<p><strong>Toggle wireframe:</strong>
+- View → Wireframe</p>
+<p><strong>Show/hide panels:</strong>
+- Window → Entity Tree
+- Window → Component Inspector</p>
+<hr />
+<h2 id="different-gazebo-worlds">🌍 Different Gazebo Worlds<a class="headerlink" href="#different-gazebo-worlds" title="Permanent link">&para;</a></h2>
+<h3 id="available-worlds">Available Worlds<a class="headerlink" href="#available-worlds" title="Permanent link">&para;</a></h3>
+<p>The plugin includes several environments:</p>
+<p><strong>iris_runway.sdf</strong> — Drone on runway (default)
+<strong>iris_maze.sdf</strong> — Indoor maze environment<br />
+<strong>iris_warehouse.sdf</strong> — Indoor warehouse</p>
+<hr />
+<h3 id="launch-different-world">Launch Different World<a class="headerlink" href="#launch-different-world" title="Permanent link">&para;</a></h3>
+<p><strong>Example: Launch in warehouse:</strong></p>
+<p><strong>Terminal 1:</strong>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>gz<span class="w"> </span>sim<span class="w"> </span>-v4<span class="w"> </span>-r<span class="w"> </span>iris_warehouse.sdf
+</span></code></pre></div></p>
+<p><strong>Terminal 2:</strong>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="nb">cd</span><span class="w"> </span>~/simtofly_ws/ardupilot/ardupilot/ArduCopter
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>sim_vehicle.py<span class="w"> </span>-v<span class="w"> </span>ArduCopter<span class="w"> </span>-f<span class="w"> </span>gazebo-iris<span class="w"> </span>--model<span class="w"> </span>JSON<span class="w"> </span>--map<span class="w"> </span>--console
+</span></code></pre></div></p>
+<p>Try different worlds to test various scenarios!</p>
+<hr />
+<h2 id="verification-checklist">📋 Verification Checklist<a class="headerlink" href="#verification-checklist" title="Permanent link">&para;</a></h2>
+<p>Before moving to next section, verify:</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ✅ Gazebo Harmonic installed (version 8.x)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ✅ ArduPilot Gazebo plugin built successfully</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ✅ Environment variables set correctly</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ✅ Gazebo launches with drone model</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ✅ SITL connects to Gazebo (sees sensor data)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ✅ Can arm and takeoff in Gazebo</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ✅ Drone physics looks realistic</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ✅ Can navigate and land successfully</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ✅ Understand Gazebo interface controls</li>
+</ul>
+<p><strong>All checked?</strong> You have complete 3D simulation! 🚀</p>
+<hr />
+<h2 id="what-you-accomplished">🎯 What You Accomplished<a class="headerlink" href="#what-you-accomplished" title="Permanent link">&para;</a></h2>
+<ul>
+<li>✅ Installed Gazebo Harmonic simulator</li>
+<li>✅ Built ArduPilot Gazebo plugin from source</li>
+<li>✅ Connected SITL to Gazebo</li>
+<li>✅ Launched drone in 3D environment</li>
+<li>✅ Performed flight with realistic physics</li>
+<li>✅ Learned Gazebo interface navigation</li>
+<li>✅ Tested different simulation worlds</li>
+</ul>
+<hr />
+<h2 id="next-steps">🚀 Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<p>Continue to <strong><a href="../1.6-first-mission/">1.6 First Autonomous Mission</a></strong> where we'll:
+- Create waypoint mission file
+- Load mission into SITL
+- Execute autonomous flight
+- Analyze flight logs
+- Complete Phase 1</p>
+<hr />
+<h2 id="common-questions">❓ Common Questions<a class="headerlink" href="#common-questions" title="Permanent link">&para;</a></h2>
+<h3 id="q-gazebo-garden-vs-gazebo-harmonic">Q: Gazebo Garden vs Gazebo Harmonic?<a class="headerlink" href="#q-gazebo-garden-vs-gazebo-harmonic" title="Permanent link">&para;</a></h3>
+<p><strong>A:</strong> Both work with ArduPilot:
+- <strong>Harmonic</strong> (recommended) — Latest stable, best support
+- <strong>Garden</strong> — LTS release, more conservative choice</p>
+<p>Stick with Harmonic unless you have specific issues.</p>
+<hr />
+<h3 id="q-why-build-plugin-from-source-instead-of-apt">Q: Why build plugin from source instead of apt?<a class="headerlink" href="#q-why-build-plugin-from-source-instead-of-apt" title="Permanent link">&para;</a></h3>
+<p><strong>A:</strong> The ArduPilot Gazebo plugin isn't in Ubuntu repositories. Building from source ensures latest version and compatibility.</p>
+<hr />
+<h3 id="q-gazebo-is-very-slowlaggy">Q: Gazebo is very slow/laggy<a class="headerlink" href="#q-gazebo-is-very-slowlaggy" title="Permanent link">&para;</a></h3>
+<p><strong>A:</strong> Solutions:
+- Close other applications
+- Reduce Gazebo quality: Edit → Physics → Real time factor
+- Use simpler worlds (iris_runway instead of warehouse)
+- Allocate more RAM to VM (if using VM)
+- Consider native Ubuntu instead of VM</p>
+<hr />
+<h3 id="q-can-i-use-gazebo-with-px4-instead-of-ardupilot">Q: Can I use Gazebo with PX4 instead of ArduPilot?<a class="headerlink" href="#q-can-i-use-gazebo-with-px4-instead-of-ardupilot" title="Permanent link">&para;</a></h3>
+<p><strong>A:</strong> Yes! Gazebo supports multiple autopilots. This tutorial focuses on ArduPilot, but Gazebo works with PX4, Betaflight, etc.</p>
+<hr />
+<h3 id="q-how-do-i-add-custom-models-to-gazebo">Q: How do I add custom models to Gazebo?<a class="headerlink" href="#q-how-do-i-add-custom-models-to-gazebo" title="Permanent link">&para;</a></h3>
+<p><strong>A:</strong> Advanced topic — Place models in <code>~/simtofly_ws/ardupilot_gazebo/models/</code> and they'll be available. We'll cover this in advanced tutorials.</p>
+<hr />
+<h2 id="troubleshooting">🐛 Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<h3 id="gazebo-window-doesnt-open">Gazebo window doesn't open<a class="headerlink" href="#gazebo-window-doesnt-open" title="Permanent link">&para;</a></h3>
+<p><strong>Cause:</strong> Missing graphics libraries or GPU drivers</p>
+<p><strong>Solution:</strong>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>libgl1-mesa-glx<span class="w"> </span>libglu1-mesa<span class="w"> </span>-y
+</span></code></pre></div></p>
+<p>Restart computer, try again.</p>
+<hr />
+<h3 id="failed-to-load-plugin-in-gazebo">"Failed to load plugin" in Gazebo<a class="headerlink" href="#failed-to-load-plugin-in-gazebo" title="Permanent link">&para;</a></h3>
+<p><strong>Cause:</strong> Plugin not in Gazebo's search path</p>
+<p><strong>Solution:</strong>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="c1"># Verify environment variable</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$GZ_SIM_SYSTEM_PLUGIN_PATH</span>
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="c1"># Should show path to your plugin</span>
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a><span class="c1"># If empty, re-add:</span>
+</span><span id="__span-25-7"><a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;export GZ_SIM_SYSTEM_PLUGIN_PATH=$HOME/simtofly_ws/ardupilot_gazebo/build:${GZ_SIM_SYSTEM_PLUGIN_PATH}&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+</span><span id="__span-25-8"><a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a><span class="nb">source</span><span class="w"> </span>~/.bashrc
+</span></code></pre></div></p>
+<p>Restart Gazebo.</p>
+<hr />
+<h3 id="sitl-doesnt-connect-to-gazebo">SITL doesn't connect to Gazebo<a class="headerlink" href="#sitl-doesnt-connect-to-gazebo" title="Permanent link">&para;</a></h3>
+<p><strong>Cause:</strong> Gazebo not running, or wrong model specified</p>
+<p><strong>Solution:</strong>
+1. <strong>Start Gazebo first</strong> (Terminal 1)
+2. Wait for world to fully load
+3. <strong>Then start SITL</strong> (Terminal 2)
+4. Verify <code>-f gazebo-iris</code> flag used</p>
+<hr />
+<h3 id="could-not-find-iris_runwaysdf">"Could not find iris_runway.sdf"<a class="headerlink" href="#could-not-find-iris_runwaysdf" title="Permanent link">&para;</a></h3>
+<p><strong>Cause:</strong> GZ_SIM_RESOURCE_PATH not set</p>
+<p><strong>Solution:</strong>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;export GZ_SIM_RESOURCE_PATH=$HOME/simtofly_ws/ardupilot_gazebo/models:$HOME/simtofly_ws/ardupilot_gazebo/worlds:${GZ_SIM_RESOURCE_PATH}&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="nb">source</span><span class="w"> </span>~/.bashrc
+</span></code></pre></div></p>
+<hr />
+<h3 id="build-errors-when-compiling-plugin">Build errors when compiling plugin<a class="headerlink" href="#build-errors-when-compiling-plugin" title="Permanent link">&para;</a></h3>
+<p><strong>Cause:</strong> Missing dependencies</p>
+<p><strong>Solution:</strong>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>libgz-sim8-dev<span class="w"> </span>rapidjson-dev<span class="w"> </span>cmake<span class="w"> </span>build-essential<span class="w"> </span>-y
+</span></code></pre></div></p>
+<p>Clean and rebuild:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="nb">cd</span><span class="w"> </span>~/simtofly_ws/ardupilot_gazebo/build
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>rm<span class="w"> </span>-rf<span class="w"> </span>*
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>cmake<span class="w"> </span>..<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>RelWithDebInfo
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>make<span class="w"> </span>-j4
+</span></code></pre></div></p>
+<hr />
+<h3 id="drone-falls-through-ground-in-gazebo">Drone falls through ground in Gazebo<a class="headerlink" href="#drone-falls-through-ground-in-gazebo" title="Permanent link">&para;</a></h3>
+<p><strong>Cause:</strong> Physics not initialized properly</p>
+<p><strong>Solution:</strong>
+- Restart Gazebo
+- Wait 2-3 seconds before launching SITL
+- Check real-time factor (should be ~1.0)</p>
+<hr />
+<h3 id="json-sensor-timeout-error-in-sitl">"JSON sensor timeout" error in SITL<a class="headerlink" href="#json-sensor-timeout-error-in-sitl" title="Permanent link">&para;</a></h3>
+<p><strong>Cause:</strong> SITL can't receive data from Gazebo</p>
+<p><strong>Solution:</strong>
+1. Verify Gazebo is running first
+2. Check drone model loaded in Gazebo
+3. Restart both Gazebo and SITL in correct order</p>
+<hr />
+<h3 id="gazebo-crashes-on-launch">Gazebo crashes on launch<a class="headerlink" href="#gazebo-crashes-on-launch" title="Permanent link">&para;</a></h3>
+<p><strong>Cause:</strong> GPU/graphics driver issues (common in VMs)</p>
+<p><strong>Solution:</strong>
+- Update graphics drivers
+- Try software rendering:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="w">  </span><span class="nb">export</span><span class="w"> </span><span class="nv">LIBGL_ALWAYS_SOFTWARE</span><span class="o">=</span><span class="m">1</span>
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="w">  </span>gz<span class="w"> </span>sim<span class="w"> </span>-v4<span class="w"> </span>-r<span class="w"> </span>iris_runway.sdf
+</span></code></pre></div>
+- Consider native Ubuntu for better GPU support</p>
+<hr />
+<h2 id="additional-resources">📚 Additional Resources<a class="headerlink" href="#additional-resources" title="Permanent link">&para;</a></h2>
+<p><strong>Official Documentation:</strong>
+- Gazebo Harmonic: https://gazebosim.org/docs/harmonic
+- ArduPilot Gazebo: https://ardupilot.org/dev/docs/ros2-gazebo.html
+- Gazebo Tutorials: https://gazebosim.org/docs/harmonic/tutorials</p>
+<p><strong>Community:</strong>
+- ArduPilot Forums: https://discuss.ardupilot.org/
+- Gazebo Community: https://community.gazebosim.org/</p>
+<hr />
+<p><a href="../1.4-mavproxy-basics/">← Back: 1.4 MAVProxy Basics</a> | <a href="../1.6-first-mission/">Next: 1.6 First Autonomous Mission →</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../1.4-mavproxy-basics/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 1.4 MAVProxy Basics">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                1.4 MAVProxy Basics
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../1.6-first-mission/" class="md-footer__link md-footer__link--next" aria-label="Next: 1.6 First Mission">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                1.6 First Mission
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 SimToFly - Created by Sidharth Mohan Nair
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/simtofly" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.youtube.com/@sidharthmohannair9351" target="_blank" rel="noopener" title="www.youtube.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M549.7 124.1c-6.2-23.7-24.8-42.3-48.3-48.6C458.9 64 288.1 64 288.1 64S117.3 64 74.7 75.5c-23.5 6.3-42 24.9-48.3 48.6C15 167 15 256.4 15 256.4s0 89.4 11.4 132.3c6.3 23.6 24.8 41.5 48.3 47.8C117.3 448 288.1 448 288.1 448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zM232.2 337.6V175.2l142.7 81.2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.action.edit", "navigation.footer", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>
