@@ -10,13 +10,14 @@
 <p align="center">
   <a href="#-what-youll-learn">What You'll Learn</a> •
   <a href="#-tutorial-phases">Tutorial Phases</a> •
-  <a href="#-getting-started">Getting Started</a> •
-  <a href="#-verified-hardware">Verified Hardware</a> •
-  <a href="#-about">About</a>
+  <a href="#-getting-started">Getting Started</a>
 </p>
 
 ---
 
+> **📖 [Visit Documentation Website](https://simtofly.github.io/simtofly-guide/)** — Professional docs with search, dark mode, and mobile support
+
+---
 ## 🎯 What You'll Learn
 
 This comprehensive tutorial takes you from zero to autonomous drone flight:
