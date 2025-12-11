@@ -1296,24 +1296,28 @@
 
 <h1 id="15-gazebo-simulation">1.5 Gazebo Simulation<a class="headerlink" href="#15-gazebo-simulation" title="Permanent link">&para;</a></h1>
 <h2 id="what-youll-learn">What You'll Learn<a class="headerlink" href="#what-youll-learn" title="Permanent link">&para;</a></h2>
-<p>Add realistic 3D visualization to your drone simulations:
-- ✅ What Gazebo is and why we use it
-- ✅ Install Gazebo Harmonic
-- ✅ Install ArduPilot Gazebo plugin
-- ✅ Launch SITL with Gazebo visualization
-- ✅ Understand Gazebo interface
-- ✅ Control drone with 3D feedback
-- ✅ Verify physics simulation works</p>
+<p>Add realistic 3D visualization to your drone simulations:</p>
+<ul>
+<li>✅ What Gazebo is and why we use it</li>
+<li>✅ Install Gazebo Harmonic</li>
+<li>✅ Install ArduPilot Gazebo plugin</li>
+<li>✅ Launch SITL with Gazebo visualization</li>
+<li>✅ Understand Gazebo interface</li>
+<li>✅ Control drone with 3D feedback</li>
+<li>✅ Verify physics simulation works</li>
+</ul>
 <p><strong>Time:</strong> 60-90 minutes</p>
 <hr />
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
-<p>Before starting, you must have completed:
-- ✅ <a href="../1.1-prerequisites/">1.1 Prerequisites and Setup</a>
-- ✅ <a href="../1.2-environment-setup/">1.2 Environment Setup</a>
-- ✅ <a href="../1.3-ardupilot-sitl/">1.3 ArduPilot SITL Installation</a>
-- ✅ <a href="../1.4-mavproxy-basics/">1.4 MAVProxy Command Line</a>
-- ✅ SITL launches and accepts commands
-- ✅ Can control drone via MAVProxy</p>
+<p>Before starting, you must have completed:</p>
+<ul>
+<li>✅ <a href="../1.1-prerequisites/">1.1 Prerequisites and Setup</a></li>
+<li>✅ <a href="../1.2-environment-setup/">1.2 Environment Setup</a></li>
+<li>✅ <a href="../1.3-ardupilot-sitl/">1.3 ArduPilot SITL Installation</a></li>
+<li>✅ <a href="../1.4-mavproxy-basics/">1.4 MAVProxy Command Line</a></li>
+<li>✅ SITL launches and accepts commands</li>
+<li>✅ Can control drone via MAVProxy</li>
+</ul>
 <hr />
 <h2 id="what-is-gazebo">🤔 What is Gazebo?<a class="headerlink" href="#what-is-gazebo" title="Permanent link">&para;</a></h2>
 <p><strong>Gazebo</strong> = Advanced 3D robot simulator</p>
@@ -1323,15 +1327,19 @@
 - <strong>Sensor simulation</strong> — Camera, GPS, IMU, lidar
 - <strong>Environmental factors</strong> — Wind, lighting, terrain</p>
 <p><strong>Why add Gazebo to SITL?</strong></p>
-<p>SITL alone:
-- ❌ No visual feedback (just text/map)
-- ❌ No realistic physics
-- ❌ No sensor simulation</p>
-<p>SITL + Gazebo:
-- ✅ See drone in 3D world
-- ✅ Realistic flight physics
-- ✅ Test sensors before real hardware
-- ✅ Better understanding of behavior</p>
+<p>SITL alone:</p>
+<ul>
+<li>❌ No visual feedback (just text/map)</li>
+<li>❌ No realistic physics</li>
+<li>❌ No sensor simulation</li>
+</ul>
+<p>SITL + Gazebo:</p>
+<ul>
+<li>✅ See drone in 3D world</li>
+<li>✅ Realistic flight physics</li>
+<li>✅ Test sensors before real hardware</li>
+<li>✅ Better understanding of behavior</li>
+</ul>
 <p><strong>Later (Phase 2):</strong> We'll add ROS2 sensors in Gazebo.</p>
 <hr />
 <h2 id="install-gazebo-harmonic">�� Install Gazebo Harmonic<a class="headerlink" href="#install-gazebo-harmonic" title="Permanent link">&para;</a></h2>
