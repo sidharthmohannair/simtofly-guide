@@ -604,7 +604,7 @@
   <a href="#update-your-system" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🔄 Update Your System
+        📄 Update Your System
       
     </span>
   </a>
@@ -623,32 +623,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#configure-your-terminal" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        🖥️ Configure Your Terminal
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#create-workspace-structure" class="md-nav__link">
     <span class="md-ellipsis">
       
         📁 Create Workspace Structure
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configure-git-optional-but-important-for-later" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        🔒 Configure Git (Optional but Important for Later)
       
     </span>
   </a>
@@ -670,7 +648,7 @@
   <a href="#final-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📝 Final Checklist
+        📋 Final Checklist
       
     </span>
   </a>
@@ -681,7 +659,7 @@
   <a href="#what-you-accomplished" class="md-nav__link">
     <span class="md-ellipsis">
       
-        �� What You Accomplished
+        🎯 What You Accomplished
       
     </span>
   </a>
@@ -1108,7 +1086,7 @@
   <a href="#update-your-system" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🔄 Update Your System
+        📄 Update Your System
       
     </span>
   </a>
@@ -1127,32 +1105,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#configure-your-terminal" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        🖥️ Configure Your Terminal
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#create-workspace-structure" class="md-nav__link">
     <span class="md-ellipsis">
       
         📁 Create Workspace Structure
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configure-git-optional-but-important-for-later" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        🔒 Configure Git (Optional but Important for Later)
       
     </span>
   </a>
@@ -1174,7 +1130,7 @@
   <a href="#final-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📝 Final Checklist
+        📋 Final Checklist
       
     </span>
   </a>
@@ -1185,7 +1141,7 @@
   <a href="#what-you-accomplished" class="md-nav__link">
     <span class="md-ellipsis">
       
-        �� What You Accomplished
+        🎯 What You Accomplished
       
     </span>
   </a>
@@ -1252,13 +1208,14 @@
 
 <h1 id="12-environment-setup">1.2 Environment Setup<a class="headerlink" href="#12-environment-setup" title="Permanent link">&para;</a></h1>
 <h2 id="what-youll-learn">What You'll Learn<a class="headerlink" href="#what-youll-learn" title="Permanent link">&para;</a></h2>
-<p>Prepare your Ubuntu system for drone development:
-- ✅ Update and configure your system
-- ✅ Install essential development tools
-- ✅ Configure terminal for efficiency
-- ✅ Create organized workspace structure
-- ✅ Verify everything is ready for ArduPilot SITL</p>
-<p><strong>Time:</strong> 30-45 minutes</p>
+<p>Prepare your Ubuntu system for drone development:</p>
+<ul>
+<li>Update system to latest packages</li>
+<li>Install essential development tools</li>
+<li>Create organized workspace structure  </li>
+<li>Verify everything is ready for ArduPilot SITL</li>
+</ul>
+<p><strong>Time:</strong> 15-20 minutes</p>
 <hr />
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <p>Before starting, you must have completed:
@@ -1267,13 +1224,14 @@
 - ✅ Internet connection working
 - ✅ System meets minimum requirements</p>
 <hr />
-<h2 id="update-your-system">🔄 Update Your System<a class="headerlink" href="#update-your-system" title="Permanent link">&para;</a></h2>
+<h2 id="update-your-system">📄 Update Your System<a class="headerlink" href="#update-your-system" title="Permanent link">&para;</a></h2>
 <h3 id="why-update-first">Why Update First?<a class="headerlink" href="#why-update-first" title="Permanent link">&para;</a></h3>
 <p>Before installing anything, ensure your system has:
 - Latest security patches
 - Updated package repositories
 - Bug fixes and improvements</p>
 <p><strong>This prevents compatibility issues later.</strong></p>
+<hr />
 <h3 id="update-commands">Update Commands<a class="headerlink" href="#update-commands" title="Permanent link">&para;</a></h3>
 <p>Open terminal (Ctrl+Alt+T) and run:
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
@@ -1290,8 +1248,8 @@
 <p>Now upgrade installed packages:
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y
 </span></code></pre></div></p>
-<p><strong>What this does:</strong> Actually downloads and installs updates.</p>
-<p><strong>This takes:</strong> 5-15 minutes depending on how many updates available.</p>
+<p><strong>What this does:</strong> Downloads and installs updates.</p>
+<p><strong>This takes:</strong> 5-15 minutes depending on pending updates.</p>
 <p><strong>Expected output:</strong>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Reading package lists... Done
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Building dependency tree... Done
@@ -1317,327 +1275,267 @@
 <p><strong>After reboot:</strong> Open terminal again and continue.</p>
 <hr />
 <h2 id="install-essential-development-tools">🛠️ Install Essential Development Tools<a class="headerlink" href="#install-essential-development-tools" title="Permanent link">&para;</a></h2>
-<h3 id="build-tools">Build Tools<a class="headerlink" href="#build-tools" title="Permanent link">&para;</a></h3>
-<p>ArduPilot needs these to compile:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>build-essential<span class="w"> </span>git
+<h3 id="install-required-packages">Install Required Packages<a class="headerlink" href="#install-required-packages" title="Permanent link">&para;</a></h3>
+<p>ArduPilot and ROS2 need these tools:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span>build-essential<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span>git<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span>python3<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span>python3-pip<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span>python3-dev<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span>curl<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span>wget<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span>nano<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span>net-tools<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">    </span>tree
 </span></code></pre></div></p>
 <p><strong>What these are:</strong>
-- <code>build-essential</code> — C/C++ compiler and libraries
-- <code>git</code> — Version control (download ArduPilot source)</p>
-<p><strong>Verify installation:</strong>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>gcc<span class="w"> </span>--version
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>git<span class="w"> </span>--version
-</span></code></pre></div></p>
-<p><strong>Expected output:</strong>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>gcc (Ubuntu 11.x.x) ...
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>git version 2.34.x
-</span></code></pre></div></p>
-<p>✅ <strong>Success:</strong> Both show version numbers</p>
-<hr />
-<h3 id="python-and-tools">Python and Tools<a class="headerlink" href="#python-and-tools" title="Permanent link">&para;</a></h3>
-<p>ArduPilot SITL uses Python:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>python3<span class="w"> </span>python3-pip<span class="w"> </span>python3-dev
-</span></code></pre></div></p>
-<p><strong>Verify Python:</strong>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>python3<span class="w"> </span>--version
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>pip3<span class="w"> </span>--version
-</span></code></pre></div></p>
-<p><strong>Expected output:</strong>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Python 3.10.x
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>pip 22.x.x from ...
-</span></code></pre></div></p>
-<p>✅ <strong>Success:</strong> Python 3.10+ and pip installed</p>
-<hr />
-<h3 id="additional-dependencies">Additional Dependencies<a class="headerlink" href="#additional-dependencies" title="Permanent link">&para;</a></h3>
-<p>Install tools we'll need throughout the tutorial:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span>curl<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span>wget<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span>nano<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">    </span>net-tools<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">    </span>openssh-client<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">    </span>software-properties-common
-</span></code></pre></div></p>
-<p><strong>What these are:</strong>
+- <code>build-essential</code> — C/C++ compiler (for building ArduPilot)
+- <code>git</code> — Version control (to clone ArduPilot)
+- <code>python3</code> — Python runtime (ArduPilot SITL uses Python)
+- <code>python3-pip</code> — Python package installer
+- <code>python3-dev</code> — Python development headers
 - <code>curl</code>, <code>wget</code> — Download files from internet
 - <code>nano</code> — Simple text editor
 - <code>net-tools</code> — Network diagnostics
-- <code>openssh-client</code> — SSH connections (for RPi later)
-- <code>software-properties-common</code> — Manage software repositories</p>
+- <code>tree</code> — Directory structure visualization</p>
+<p><strong>This takes:</strong> 2-5 minutes</p>
+<p><strong>Expected output:</strong>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Reading package lists... Done
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>Building dependency tree... Done
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>...
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>Setting up build-essential...
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>Setting up git...
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>...
+</span></code></pre></div></p>
+<p>✅ <strong>Success:</strong> All packages installed without errors</p>
 <hr />
-<h2 id="configure-your-terminal">🖥️ Configure Your Terminal<a class="headerlink" href="#configure-your-terminal" title="Permanent link">&para;</a></h2>
-<h3 id="make-terminal-more-useful">Make Terminal More Useful<a class="headerlink" href="#make-terminal-more-useful" title="Permanent link">&para;</a></h3>
-<h4 id="enable-color-prompt">Enable Color Prompt<a class="headerlink" href="#enable-color-prompt" title="Permanent link">&para;</a></h4>
-<p>Check if already enabled:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>cat<span class="w"> </span>~/.bashrc<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;force_color_prompt=yes&quot;</span>
+<h3 id="verify-installation">Verify Installation<a class="headerlink" href="#verify-installation" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>gcc<span class="w"> </span>--version
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>git<span class="w"> </span>--version
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>python3<span class="w"> </span>--version
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>pip3<span class="w"> </span>--version
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>tree<span class="w"> </span>--version
+</span></code></pre></div>
+<p><strong>Expected output:</strong>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>gcc (Ubuntu 11.x.x) ...
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>git version 2.34.x
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>Python 3.10.x
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>pip 22.x.x from ...
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>tree v1.8.x
 </span></code></pre></div></p>
-<p><strong>If nothing appears</strong>, enable it:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;s/#force_color_prompt=yes/force_color_prompt=yes/&#39;</span><span class="w"> </span>~/.bashrc
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="nb">source</span><span class="w"> </span>~/.bashrc
-</span></code></pre></div></p>
-<p><strong>Result:</strong> Your terminal prompt now shows colors (easier to read).</p>
-<hr />
-<h4 id="add-useful-aliases">Add Useful Aliases<a class="headerlink" href="#add-useful-aliases" title="Permanent link">&para;</a></h4>
-<p>Add shortcuts for common commands:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>nano<span class="w"> </span>~/.bashrc
-</span></code></pre></div></p>
-<p><strong>Scroll to bottom and add these lines:</strong>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1"># Useful aliases for SimToFly tutorials</span>
-</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="nb">alias</span><span class="w"> </span><span class="nv">ll</span><span class="o">=</span><span class="s1">&#39;ls -lah&#39;</span>
-</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="nb">alias</span><span class="w"> </span><span class="nv">update</span><span class="o">=</span><span class="s1">&#39;sudo apt update &amp;&amp; sudo apt upgrade -y&#39;</span>
-</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="nb">alias</span><span class="w"> </span><span class="nv">workspace</span><span class="o">=</span><span class="s1">&#39;cd ~/simtofly_ws&#39;</span>
-</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>
-</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="c1"># Show current git branch in prompt (useful later)</span>
-</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>parse_git_branch<span class="o">()</span><span class="w"> </span><span class="o">{</span>
-</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="w">    </span>git<span class="w"> </span>branch<span class="w"> </span><span class="m">2</span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;/^[^*]/d&#39;</span><span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;s/* \(.*\)/(\1)/&#39;</span>
-</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="o">}</span>
-</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PS1</span><span class="o">=</span><span class="s2">&quot;\u@\h:\w\$(parse_git_branch)\$ &quot;</span>
-</span></code></pre></div></p>
-<p><strong>Save and exit:</strong> Ctrl+X, then Y, then Enter</p>
-<p><strong>Apply changes:</strong>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nb">source</span><span class="w"> </span>~/.bashrc
-</span></code></pre></div></p>
-<p><strong>Test your new aliases:</strong>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>ll
-</span></code></pre></div></p>
-<p>✅ <strong>Success:</strong> Shows detailed file listing with sizes</p>
-<hr />
-<h3 id="increase-terminal-history">Increase Terminal History<a class="headerlink" href="#increase-terminal-history" title="Permanent link">&para;</a></h3>
-<p>Keep more command history (useful for finding previous commands):
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;HISTSIZE=10000&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
-</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;HISTFILESIZE=20000&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
-</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="nb">source</span><span class="w"> </span>~/.bashrc
-</span></code></pre></div></p>
-<p><strong>What this does:</strong> Saves last 10,000 commands instead of default 500.</p>
+<p>✅ <strong>Success:</strong> All tools show version numbers</p>
 <hr />
 <h2 id="create-workspace-structure">📁 Create Workspace Structure<a class="headerlink" href="#create-workspace-structure" title="Permanent link">&para;</a></h2>
 <h3 id="why-organized-workspace">Why Organized Workspace?<a class="headerlink" href="#why-organized-workspace" title="Permanent link">&para;</a></h3>
 <p>Having a clear structure prevents:
-- ❌ Files scattered everywhere
-- ❌ Forgetting where you saved things
-- ❌ Conflicts between different projects</p>
+- Files scattered everywhere
+- Forgetting where you saved things
+- Conflicts between different projects</p>
+<p>All SimToFly work will be in one place: <code>~/simtofly_ws/</code></p>
+<hr />
 <h3 id="create-main-workspace">Create Main Workspace<a class="headerlink" href="#create-main-workspace" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>~/simtofly_ws
-</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="nb">cd</span><span class="w"> </span>~/simtofly_ws
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>~/simtofly_ws
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="nb">cd</span><span class="w"> </span>~/simtofly_ws
 </span></code></pre></div>
 <p><strong>What this creates:</strong> Main folder for all SimToFly work.</p>
 <hr />
 <h3 id="create-subdirectories">Create Subdirectories<a class="headerlink" href="#create-subdirectories" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="nb">cd</span><span class="w"> </span>~/simtofly_ws
-</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="o">{</span>ardupilot,logs,missions,scripts,ros2_ws<span class="o">}</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>logs<span class="w"> </span>missions<span class="w"> </span>scripts<span class="w"> </span>ros2_ws
 </span></code></pre></div>
 <p><strong>What each folder is for:</strong>
-- <code>ardupilot/</code> — ArduPilot source code (we'll clone here)
-- <code>logs/</code> — Flight logs and data
+- <code>logs/</code> — Flight logs and telemetry data
 - <code>missions/</code> — Mission files and waypoints
 - <code>scripts/</code> — Helper scripts and tools
 - <code>ros2_ws/</code> — ROS2 workspace (Phase 2)</p>
-<p><strong>Verify structure:</strong>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>tree<span class="w"> </span>-L<span class="w"> </span><span class="m">1</span><span class="w"> </span>~/simtofly_ws
-</span></code></pre></div></p>
-<p><strong>Expected output:</strong>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>/home/your-username/simtofly_ws
-</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>├── ardupilot
-</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>├── logs
-</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>├── missions
-</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>├── ros2_ws
-</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>└── scripts
-</span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a>
-</span><span id="__span-23-8"><a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a>5 directories, 0 files
-</span></code></pre></div></p>
-<p>✅ <strong>Success:</strong> All directories created</p>
-<p><strong>If <code>tree</code> command not found:</strong>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>tree
-</span></code></pre></div></p>
+<p><strong>Note:</strong> We'll create the <code>ardupilot/</code> folder in Section 1.3 when we clone ArduPilot repository.</p>
 <hr />
-<h3 id="add-workspace-to-your-path">Add Workspace to Your Path<a class="headerlink" href="#add-workspace-to-your-path" title="Permanent link">&para;</a></h3>
-<p>Make it easy to jump to workspace from anywhere:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;export SIMTOFLY_WS=~/simtofly_ws&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
-</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="nb">source</span><span class="w"> </span>~/.bashrc
-</span></code></pre></div></p>
-<p><strong>Test it:</strong>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$SIMTOFLY_WS</span>
-</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="nb">cd</span><span class="w"> </span><span class="nv">$SIMTOFLY_WS</span>
-</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="nb">pwd</span>
-</span></code></pre></div></p>
+<h3 id="verify-structure">Verify Structure<a class="headerlink" href="#verify-structure" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>tree<span class="w"> </span>-L<span class="w"> </span><span class="m">1</span><span class="w"> </span>~/simtofly_ws
+</span></code></pre></div>
 <p><strong>Expected output:</strong>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>/home/your-username/simtofly_ws
-</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>/home/your-username/simtofly_ws
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>/home/your-username/simtofly_ws
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>├── logs
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>├── missions
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>├── ros2_ws
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>└── scripts
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>4 directories, 0 files
 </span></code></pre></div></p>
-<p>✅ <strong>Success:</strong> Can access workspace via variable</p>
+<p>✅ <strong>Success:</strong> Four directories created</p>
 <hr />
-<h2 id="configure-git-optional-but-important-for-later">🔒 Configure Git (Optional but Important for Later)<a class="headerlink" href="#configure-git-optional-but-important-for-later" title="Permanent link">&para;</a></h2>
-<p>Set your identity for git commits:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&quot;Your Name&quot;</span>
-</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span><span class="s2">&quot;your.email@example.com&quot;</span>
+<h3 id="add-workspace-environment-variable">Add Workspace Environment Variable<a class="headerlink" href="#add-workspace-environment-variable" title="Permanent link">&para;</a></h3>
+<p>Make it easy to access workspace from anywhere:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;export SIMTOFLY_WS=~/simtofly_ws&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="nb">source</span><span class="w"> </span>~/.bashrc
 </span></code></pre></div></p>
-<p><strong>Replace with your actual name and email.</strong></p>
-<p><strong>Verify configuration:</strong>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>git<span class="w"> </span>config<span class="w"> </span>--list<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>user
-</span></code></pre></div></p>
+<p><strong>What this does:</strong> Creates a shortcut variable to your workspace.</p>
+<hr />
+<h3 id="test-workspace-variable">Test Workspace Variable<a class="headerlink" href="#test-workspace-variable" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$SIMTOFLY_WS</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="nb">cd</span><span class="w"> </span><span class="nv">$SIMTOFLY_WS</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="nb">pwd</span>
+</span></code></pre></div>
 <p><strong>Expected output:</strong>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>user.name=Your Name
-</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>user.email=your.email@example.com
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>/home/your-username/simtofly_ws
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>/home/your-username/simtofly_ws
 </span></code></pre></div></p>
-<p>✅ <strong>Success:</strong> Git configured</p>
-<p><strong>Why this matters:</strong> Later you might contribute fixes or fork repositories.</p>
+<p>✅ <strong>Success:</strong> Can access workspace via <code>$SIMTOFLY_WS</code></p>
 <hr />
 <h2 id="system-check-and-verification">🧪 System Check and Verification<a class="headerlink" href="#system-check-and-verification" title="Permanent link">&para;</a></h2>
 <h3 id="create-verification-script">Create Verification Script<a class="headerlink" href="#create-verification-script" title="Permanent link">&para;</a></h3>
 <p>Let's create a script to check everything is ready:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>nano<span class="w"> </span>~/simtofly_ws/scripts/check_environment.sh
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>nano<span class="w"> </span>~/simtofly_ws/scripts/check_environment.sh
 </span></code></pre></div></p>
 <p><strong>Paste this script:</strong>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="ch">#!/bin/bash</span>
-</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>
-</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;==========================================&quot;</span>
-</span><span id="__span-32-4"><a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;SimToFly Environment Check&quot;</span>
-</span><span id="__span-32-5"><a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;==========================================&quot;</span>
-</span><span id="__span-32-6"><a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
-</span><span id="__span-32-7"><a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a>
-</span><span id="__span-32-8"><a id="__codelineno-32-8" name="__codelineno-32-8" href="#__codelineno-32-8"></a><span class="c1"># Check Ubuntu version</span>
-</span><span id="__span-32-9"><a id="__codelineno-32-9" name="__codelineno-32-9" href="#__codelineno-32-9"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Checking Ubuntu version...&quot;</span>
-</span><span id="__span-32-10"><a id="__codelineno-32-10" name="__codelineno-32-10" href="#__codelineno-32-10"></a><span class="k">if</span><span class="w"> </span>lsb_release<span class="w"> </span>-d<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-q<span class="w"> </span><span class="s2">&quot;22.04&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-</span><span id="__span-32-11"><a id="__codelineno-32-11" name="__codelineno-32-11" href="#__codelineno-32-11"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;✅ Ubuntu 22.04 detected&quot;</span>
-</span><span id="__span-32-12"><a id="__codelineno-32-12" name="__codelineno-32-12" href="#__codelineno-32-12"></a><span class="k">else</span>
-</span><span id="__span-32-13"><a id="__codelineno-32-13" name="__codelineno-32-13" href="#__codelineno-32-13"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;❌ Wrong Ubuntu version. Need 22.04&quot;</span>
-</span><span id="__span-32-14"><a id="__codelineno-32-14" name="__codelineno-32-14" href="#__codelineno-32-14"></a><span class="w">    </span>lsb_release<span class="w"> </span>-d
-</span><span id="__span-32-15"><a id="__codelineno-32-15" name="__codelineno-32-15" href="#__codelineno-32-15"></a><span class="k">fi</span>
-</span><span id="__span-32-16"><a id="__codelineno-32-16" name="__codelineno-32-16" href="#__codelineno-32-16"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
-</span><span id="__span-32-17"><a id="__codelineno-32-17" name="__codelineno-32-17" href="#__codelineno-32-17"></a>
-</span><span id="__span-32-18"><a id="__codelineno-32-18" name="__codelineno-32-18" href="#__codelineno-32-18"></a><span class="c1"># Check disk space</span>
-</span><span id="__span-32-19"><a id="__codelineno-32-19" name="__codelineno-32-19" href="#__codelineno-32-19"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Checking disk space...&quot;</span>
-</span><span id="__span-32-20"><a id="__codelineno-32-20" name="__codelineno-32-20" href="#__codelineno-32-20"></a><span class="nv">AVAILABLE</span><span class="o">=</span><span class="k">$(</span>df<span class="w"> </span>-BG<span class="w"> </span>/<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-1<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $4}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">&#39;s/G//&#39;</span><span class="k">)</span>
-</span><span id="__span-32-21"><a id="__codelineno-32-21" name="__codelineno-32-21" href="#__codelineno-32-21"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$AVAILABLE</span><span class="s2">&quot;</span><span class="w"> </span>-gt<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-</span><span id="__span-32-22"><a id="__codelineno-32-22" name="__codelineno-32-22" href="#__codelineno-32-22"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;✅ Sufficient disk space: </span><span class="si">${</span><span class="nv">AVAILABLE</span><span class="si">}</span><span class="s2">GB available&quot;</span>
-</span><span id="__span-32-23"><a id="__codelineno-32-23" name="__codelineno-32-23" href="#__codelineno-32-23"></a><span class="k">else</span>
-</span><span id="__span-32-24"><a id="__codelineno-32-24" name="__codelineno-32-24" href="#__codelineno-32-24"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;⚠️  Low disk space: </span><span class="si">${</span><span class="nv">AVAILABLE</span><span class="si">}</span><span class="s2">GB available (need 30GB+)&quot;</span>
-</span><span id="__span-32-25"><a id="__codelineno-32-25" name="__codelineno-32-25" href="#__codelineno-32-25"></a><span class="k">fi</span>
-</span><span id="__span-32-26"><a id="__codelineno-32-26" name="__codelineno-32-26" href="#__codelineno-32-26"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
-</span><span id="__span-32-27"><a id="__codelineno-32-27" name="__codelineno-32-27" href="#__codelineno-32-27"></a>
-</span><span id="__span-32-28"><a id="__codelineno-32-28" name="__codelineno-32-28" href="#__codelineno-32-28"></a><span class="c1"># Check RAM</span>
-</span><span id="__span-32-29"><a id="__codelineno-32-29" name="__codelineno-32-29" href="#__codelineno-32-29"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Checking RAM...&quot;</span>
-</span><span id="__span-32-30"><a id="__codelineno-32-30" name="__codelineno-32-30" href="#__codelineno-32-30"></a><span class="nv">TOTAL_RAM</span><span class="o">=</span><span class="k">$(</span>free<span class="w"> </span>-g<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;/^Mem:/{print $2}&#39;</span><span class="k">)</span>
-</span><span id="__span-32-31"><a id="__codelineno-32-31" name="__codelineno-32-31" href="#__codelineno-32-31"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$TOTAL_RAM</span><span class="s2">&quot;</span><span class="w"> </span>-ge<span class="w"> </span><span class="m">7</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-</span><span id="__span-32-32"><a id="__codelineno-32-32" name="__codelineno-32-32" href="#__codelineno-32-32"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;✅ Sufficient RAM: </span><span class="si">${</span><span class="nv">TOTAL_RAM</span><span class="si">}</span><span class="s2">GB&quot;</span>
-</span><span id="__span-32-33"><a id="__codelineno-32-33" name="__codelineno-32-33" href="#__codelineno-32-33"></a><span class="k">else</span>
-</span><span id="__span-32-34"><a id="__codelineno-32-34" name="__codelineno-32-34" href="#__codelineno-32-34"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;⚠️  Low RAM: </span><span class="si">${</span><span class="nv">TOTAL_RAM</span><span class="si">}</span><span class="s2">GB (recommended 8GB+)&quot;</span>
-</span><span id="__span-32-35"><a id="__codelineno-32-35" name="__codelineno-32-35" href="#__codelineno-32-35"></a><span class="k">fi</span>
-</span><span id="__span-32-36"><a id="__codelineno-32-36" name="__codelineno-32-36" href="#__codelineno-32-36"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
-</span><span id="__span-32-37"><a id="__codelineno-32-37" name="__codelineno-32-37" href="#__codelineno-32-37"></a>
-</span><span id="__span-32-38"><a id="__codelineno-32-38" name="__codelineno-32-38" href="#__codelineno-32-38"></a><span class="c1"># Check essential tools</span>
-</span><span id="__span-32-39"><a id="__codelineno-32-39" name="__codelineno-32-39" href="#__codelineno-32-39"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Checking essential tools...&quot;</span>
-</span><span id="__span-32-40"><a id="__codelineno-32-40" name="__codelineno-32-40" href="#__codelineno-32-40"></a><span class="nv">TOOLS</span><span class="o">=(</span><span class="s2">&quot;gcc&quot;</span><span class="w"> </span><span class="s2">&quot;g++&quot;</span><span class="w"> </span><span class="s2">&quot;make&quot;</span><span class="w"> </span><span class="s2">&quot;git&quot;</span><span class="w"> </span><span class="s2">&quot;python3&quot;</span><span class="w"> </span><span class="s2">&quot;pip3&quot;</span><span class="o">)</span>
-</span><span id="__span-32-41"><a id="__codelineno-32-41" name="__codelineno-32-41" href="#__codelineno-32-41"></a><span class="k">for</span><span class="w"> </span>tool<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">TOOLS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-</span><span id="__span-32-42"><a id="__codelineno-32-42" name="__codelineno-32-42" href="#__codelineno-32-42"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nb">command</span><span class="w"> </span>-v<span class="w"> </span><span class="nv">$tool</span><span class="w"> </span><span class="p">&amp;</span>&gt;<span class="w"> </span>/dev/null<span class="p">;</span><span class="w"> </span><span class="k">then</span>
-</span><span id="__span-32-43"><a id="__codelineno-32-43" name="__codelineno-32-43" href="#__codelineno-32-43"></a><span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;✅ </span><span class="nv">$tool</span><span class="s2"> installed&quot;</span>
-</span><span id="__span-32-44"><a id="__codelineno-32-44" name="__codelineno-32-44" href="#__codelineno-32-44"></a><span class="w">    </span><span class="k">else</span>
-</span><span id="__span-32-45"><a id="__codelineno-32-45" name="__codelineno-32-45" href="#__codelineno-32-45"></a><span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;❌ </span><span class="nv">$tool</span><span class="s2"> NOT installed&quot;</span>
-</span><span id="__span-32-46"><a id="__codelineno-32-46" name="__codelineno-32-46" href="#__codelineno-32-46"></a><span class="w">    </span><span class="k">fi</span>
-</span><span id="__span-32-47"><a id="__codelineno-32-47" name="__codelineno-32-47" href="#__codelineno-32-47"></a><span class="k">done</span>
-</span><span id="__span-32-48"><a id="__codelineno-32-48" name="__codelineno-32-48" href="#__codelineno-32-48"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
-</span><span id="__span-32-49"><a id="__codelineno-32-49" name="__codelineno-32-49" href="#__codelineno-32-49"></a>
-</span><span id="__span-32-50"><a id="__codelineno-32-50" name="__codelineno-32-50" href="#__codelineno-32-50"></a><span class="c1"># Check workspace structure</span>
-</span><span id="__span-32-51"><a id="__codelineno-32-51" name="__codelineno-32-51" href="#__codelineno-32-51"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Checking workspace structure...&quot;</span>
-</span><span id="__span-32-52"><a id="__codelineno-32-52" name="__codelineno-32-52" href="#__codelineno-32-52"></a><span class="nv">DIRS</span><span class="o">=(</span><span class="s2">&quot;ardupilot&quot;</span><span class="w"> </span><span class="s2">&quot;logs&quot;</span><span class="w"> </span><span class="s2">&quot;missions&quot;</span><span class="w"> </span><span class="s2">&quot;scripts&quot;</span><span class="w"> </span><span class="s2">&quot;ros2_ws&quot;</span><span class="o">)</span>
-</span><span id="__span-32-53"><a id="__codelineno-32-53" name="__codelineno-32-53" href="#__codelineno-32-53"></a><span class="k">for</span><span class="w"> </span>dir<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">DIRS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-</span><span id="__span-32-54"><a id="__codelineno-32-54" name="__codelineno-32-54" href="#__codelineno-32-54"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/simtofly_ws/</span><span class="nv">$dir</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-</span><span id="__span-32-55"><a id="__codelineno-32-55" name="__codelineno-32-55" href="#__codelineno-32-55"></a><span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;✅ </span><span class="nv">$dir</span><span class="s2"> directory exists&quot;</span>
-</span><span id="__span-32-56"><a id="__codelineno-32-56" name="__codelineno-32-56" href="#__codelineno-32-56"></a><span class="w">    </span><span class="k">else</span>
-</span><span id="__span-32-57"><a id="__codelineno-32-57" name="__codelineno-32-57" href="#__codelineno-32-57"></a><span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;❌ </span><span class="nv">$dir</span><span class="s2"> directory missing&quot;</span>
-</span><span id="__span-32-58"><a id="__codelineno-32-58" name="__codelineno-32-58" href="#__codelineno-32-58"></a><span class="w">    </span><span class="k">fi</span>
-</span><span id="__span-32-59"><a id="__codelineno-32-59" name="__codelineno-32-59" href="#__codelineno-32-59"></a><span class="k">done</span>
-</span><span id="__span-32-60"><a id="__codelineno-32-60" name="__codelineno-32-60" href="#__codelineno-32-60"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
-</span><span id="__span-32-61"><a id="__codelineno-32-61" name="__codelineno-32-61" href="#__codelineno-32-61"></a>
-</span><span id="__span-32-62"><a id="__codelineno-32-62" name="__codelineno-32-62" href="#__codelineno-32-62"></a><span class="c1"># Check internet</span>
-</span><span id="__span-32-63"><a id="__codelineno-32-63" name="__codelineno-32-63" href="#__codelineno-32-63"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Checking internet connection...&quot;</span>
-</span><span id="__span-32-64"><a id="__codelineno-32-64" name="__codelineno-32-64" href="#__codelineno-32-64"></a><span class="k">if</span><span class="w"> </span>ping<span class="w"> </span>-c<span class="w"> </span><span class="m">1</span><span class="w"> </span>google.com<span class="w"> </span><span class="p">&amp;</span>&gt;<span class="w"> </span>/dev/null<span class="p">;</span><span class="w"> </span><span class="k">then</span>
-</span><span id="__span-32-65"><a id="__codelineno-32-65" name="__codelineno-32-65" href="#__codelineno-32-65"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;✅ Internet connection working&quot;</span>
-</span><span id="__span-32-66"><a id="__codelineno-32-66" name="__codelineno-32-66" href="#__codelineno-32-66"></a><span class="k">else</span>
-</span><span id="__span-32-67"><a id="__codelineno-32-67" name="__codelineno-32-67" href="#__codelineno-32-67"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;❌ No internet connection&quot;</span>
-</span><span id="__span-32-68"><a id="__codelineno-32-68" name="__codelineno-32-68" href="#__codelineno-32-68"></a><span class="k">fi</span>
-</span><span id="__span-32-69"><a id="__codelineno-32-69" name="__codelineno-32-69" href="#__codelineno-32-69"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
-</span><span id="__span-32-70"><a id="__codelineno-32-70" name="__codelineno-32-70" href="#__codelineno-32-70"></a>
-</span><span id="__span-32-71"><a id="__codelineno-32-71" name="__codelineno-32-71" href="#__codelineno-32-71"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;==========================================&quot;</span>
-</span><span id="__span-32-72"><a id="__codelineno-32-72" name="__codelineno-32-72" href="#__codelineno-32-72"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Environment check complete!&quot;</span>
-</span><span id="__span-32-73"><a id="__codelineno-32-73" name="__codelineno-32-73" href="#__codelineno-32-73"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;==========================================&quot;</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="ch">#!/bin/bash</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;==========================================&quot;</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;SimToFly Environment Check&quot;</span>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;==========================================&quot;</span>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="c1"># Check Ubuntu version</span>
+</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Checking Ubuntu version...&quot;</span>
+</span><span id="__span-18-10"><a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a><span class="k">if</span><span class="w"> </span>lsb_release<span class="w"> </span>-d<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-q<span class="w"> </span><span class="s2">&quot;22.04&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-18-11"><a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;✅ Ubuntu 22.04 detected&quot;</span>
+</span><span id="__span-18-12"><a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a><span class="k">else</span>
+</span><span id="__span-18-13"><a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;❌ Wrong Ubuntu version. Need 22.04&quot;</span>
+</span><span id="__span-18-14"><a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a><span class="w">    </span>lsb_release<span class="w"> </span>-d
+</span><span id="__span-18-15"><a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a><span class="k">fi</span>
+</span><span id="__span-18-16"><a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+</span><span id="__span-18-17"><a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a>
+</span><span id="__span-18-18"><a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a><span class="c1"># Check disk space</span>
+</span><span id="__span-18-19"><a id="__codelineno-18-19" name="__codelineno-18-19" href="#__codelineno-18-19"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Checking disk space...&quot;</span>
+</span><span id="__span-18-20"><a id="__codelineno-18-20" name="__codelineno-18-20" href="#__codelineno-18-20"></a><span class="nv">AVAILABLE</span><span class="o">=</span><span class="k">$(</span>df<span class="w"> </span>-BG<span class="w"> </span>/<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-1<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $4}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">&#39;s/G//&#39;</span><span class="k">)</span>
+</span><span id="__span-18-21"><a id="__codelineno-18-21" name="__codelineno-18-21" href="#__codelineno-18-21"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$AVAILABLE</span><span class="s2">&quot;</span><span class="w"> </span>-gt<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-18-22"><a id="__codelineno-18-22" name="__codelineno-18-22" href="#__codelineno-18-22"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;✅ Sufficient disk space: </span><span class="si">${</span><span class="nv">AVAILABLE</span><span class="si">}</span><span class="s2">GB available&quot;</span>
+</span><span id="__span-18-23"><a id="__codelineno-18-23" name="__codelineno-18-23" href="#__codelineno-18-23"></a><span class="k">else</span>
+</span><span id="__span-18-24"><a id="__codelineno-18-24" name="__codelineno-18-24" href="#__codelineno-18-24"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;⚠️ Low disk space: </span><span class="si">${</span><span class="nv">AVAILABLE</span><span class="si">}</span><span class="s2">GB available (need 30GB+)&quot;</span>
+</span><span id="__span-18-25"><a id="__codelineno-18-25" name="__codelineno-18-25" href="#__codelineno-18-25"></a><span class="k">fi</span>
+</span><span id="__span-18-26"><a id="__codelineno-18-26" name="__codelineno-18-26" href="#__codelineno-18-26"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+</span><span id="__span-18-27"><a id="__codelineno-18-27" name="__codelineno-18-27" href="#__codelineno-18-27"></a>
+</span><span id="__span-18-28"><a id="__codelineno-18-28" name="__codelineno-18-28" href="#__codelineno-18-28"></a><span class="c1"># Check RAM</span>
+</span><span id="__span-18-29"><a id="__codelineno-18-29" name="__codelineno-18-29" href="#__codelineno-18-29"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Checking RAM...&quot;</span>
+</span><span id="__span-18-30"><a id="__codelineno-18-30" name="__codelineno-18-30" href="#__codelineno-18-30"></a><span class="nv">TOTAL_RAM</span><span class="o">=</span><span class="k">$(</span>free<span class="w"> </span>-g<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;/^Mem:/{print $2}&#39;</span><span class="k">)</span>
+</span><span id="__span-18-31"><a id="__codelineno-18-31" name="__codelineno-18-31" href="#__codelineno-18-31"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$TOTAL_RAM</span><span class="s2">&quot;</span><span class="w"> </span>-ge<span class="w"> </span><span class="m">7</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-18-32"><a id="__codelineno-18-32" name="__codelineno-18-32" href="#__codelineno-18-32"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;✅ Sufficient RAM: </span><span class="si">${</span><span class="nv">TOTAL_RAM</span><span class="si">}</span><span class="s2">GB&quot;</span>
+</span><span id="__span-18-33"><a id="__codelineno-18-33" name="__codelineno-18-33" href="#__codelineno-18-33"></a><span class="k">else</span>
+</span><span id="__span-18-34"><a id="__codelineno-18-34" name="__codelineno-18-34" href="#__codelineno-18-34"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;⚠️ Low RAM: </span><span class="si">${</span><span class="nv">TOTAL_RAM</span><span class="si">}</span><span class="s2">GB (recommended 8GB+)&quot;</span>
+</span><span id="__span-18-35"><a id="__codelineno-18-35" name="__codelineno-18-35" href="#__codelineno-18-35"></a><span class="k">fi</span>
+</span><span id="__span-18-36"><a id="__codelineno-18-36" name="__codelineno-18-36" href="#__codelineno-18-36"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+</span><span id="__span-18-37"><a id="__codelineno-18-37" name="__codelineno-18-37" href="#__codelineno-18-37"></a>
+</span><span id="__span-18-38"><a id="__codelineno-18-38" name="__codelineno-18-38" href="#__codelineno-18-38"></a><span class="c1"># Check essential tools</span>
+</span><span id="__span-18-39"><a id="__codelineno-18-39" name="__codelineno-18-39" href="#__codelineno-18-39"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Checking essential tools...&quot;</span>
+</span><span id="__span-18-40"><a id="__codelineno-18-40" name="__codelineno-18-40" href="#__codelineno-18-40"></a><span class="nv">TOOLS</span><span class="o">=(</span><span class="s2">&quot;gcc&quot;</span><span class="w"> </span><span class="s2">&quot;g++&quot;</span><span class="w"> </span><span class="s2">&quot;make&quot;</span><span class="w"> </span><span class="s2">&quot;git&quot;</span><span class="w"> </span><span class="s2">&quot;python3&quot;</span><span class="w"> </span><span class="s2">&quot;pip3&quot;</span><span class="w"> </span><span class="s2">&quot;tree&quot;</span><span class="o">)</span>
+</span><span id="__span-18-41"><a id="__codelineno-18-41" name="__codelineno-18-41" href="#__codelineno-18-41"></a><span class="k">for</span><span class="w"> </span>tool<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">TOOLS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-18-42"><a id="__codelineno-18-42" name="__codelineno-18-42" href="#__codelineno-18-42"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nb">command</span><span class="w"> </span>-v<span class="w"> </span><span class="nv">$tool</span><span class="w"> </span><span class="p">&amp;</span>&gt;<span class="w"> </span>/dev/null<span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-18-43"><a id="__codelineno-18-43" name="__codelineno-18-43" href="#__codelineno-18-43"></a><span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;✅ </span><span class="nv">$tool</span><span class="s2"> installed&quot;</span>
+</span><span id="__span-18-44"><a id="__codelineno-18-44" name="__codelineno-18-44" href="#__codelineno-18-44"></a><span class="w">    </span><span class="k">else</span>
+</span><span id="__span-18-45"><a id="__codelineno-18-45" name="__codelineno-18-45" href="#__codelineno-18-45"></a><span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;❌ </span><span class="nv">$tool</span><span class="s2"> NOT installed&quot;</span>
+</span><span id="__span-18-46"><a id="__codelineno-18-46" name="__codelineno-18-46" href="#__codelineno-18-46"></a><span class="w">    </span><span class="k">fi</span>
+</span><span id="__span-18-47"><a id="__codelineno-18-47" name="__codelineno-18-47" href="#__codelineno-18-47"></a><span class="k">done</span>
+</span><span id="__span-18-48"><a id="__codelineno-18-48" name="__codelineno-18-48" href="#__codelineno-18-48"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+</span><span id="__span-18-49"><a id="__codelineno-18-49" name="__codelineno-18-49" href="#__codelineno-18-49"></a>
+</span><span id="__span-18-50"><a id="__codelineno-18-50" name="__codelineno-18-50" href="#__codelineno-18-50"></a><span class="c1"># Check workspace structure</span>
+</span><span id="__span-18-51"><a id="__codelineno-18-51" name="__codelineno-18-51" href="#__codelineno-18-51"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Checking workspace structure...&quot;</span>
+</span><span id="__span-18-52"><a id="__codelineno-18-52" name="__codelineno-18-52" href="#__codelineno-18-52"></a><span class="nv">DIRS</span><span class="o">=(</span><span class="s2">&quot;logs&quot;</span><span class="w"> </span><span class="s2">&quot;missions&quot;</span><span class="w"> </span><span class="s2">&quot;scripts&quot;</span><span class="w"> </span><span class="s2">&quot;ros2_ws&quot;</span><span class="o">)</span>
+</span><span id="__span-18-53"><a id="__codelineno-18-53" name="__codelineno-18-53" href="#__codelineno-18-53"></a><span class="k">for</span><span class="w"> </span>dir<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">DIRS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-18-54"><a id="__codelineno-18-54" name="__codelineno-18-54" href="#__codelineno-18-54"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/simtofly_ws/</span><span class="nv">$dir</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-18-55"><a id="__codelineno-18-55" name="__codelineno-18-55" href="#__codelineno-18-55"></a><span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;✅ </span><span class="nv">$dir</span><span class="s2"> directory exists&quot;</span>
+</span><span id="__span-18-56"><a id="__codelineno-18-56" name="__codelineno-18-56" href="#__codelineno-18-56"></a><span class="w">    </span><span class="k">else</span>
+</span><span id="__span-18-57"><a id="__codelineno-18-57" name="__codelineno-18-57" href="#__codelineno-18-57"></a><span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;❌ </span><span class="nv">$dir</span><span class="s2"> directory missing&quot;</span>
+</span><span id="__span-18-58"><a id="__codelineno-18-58" name="__codelineno-18-58" href="#__codelineno-18-58"></a><span class="w">    </span><span class="k">fi</span>
+</span><span id="__span-18-59"><a id="__codelineno-18-59" name="__codelineno-18-59" href="#__codelineno-18-59"></a><span class="k">done</span>
+</span><span id="__span-18-60"><a id="__codelineno-18-60" name="__codelineno-18-60" href="#__codelineno-18-60"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+</span><span id="__span-18-61"><a id="__codelineno-18-61" name="__codelineno-18-61" href="#__codelineno-18-61"></a>
+</span><span id="__span-18-62"><a id="__codelineno-18-62" name="__codelineno-18-62" href="#__codelineno-18-62"></a><span class="c1"># Check internet</span>
+</span><span id="__span-18-63"><a id="__codelineno-18-63" name="__codelineno-18-63" href="#__codelineno-18-63"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Checking internet connection...&quot;</span>
+</span><span id="__span-18-64"><a id="__codelineno-18-64" name="__codelineno-18-64" href="#__codelineno-18-64"></a><span class="k">if</span><span class="w"> </span>ping<span class="w"> </span>-c<span class="w"> </span><span class="m">1</span><span class="w"> </span>google.com<span class="w"> </span><span class="p">&amp;</span>&gt;<span class="w"> </span>/dev/null<span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-18-65"><a id="__codelineno-18-65" name="__codelineno-18-65" href="#__codelineno-18-65"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;✅ Internet connection working&quot;</span>
+</span><span id="__span-18-66"><a id="__codelineno-18-66" name="__codelineno-18-66" href="#__codelineno-18-66"></a><span class="k">else</span>
+</span><span id="__span-18-67"><a id="__codelineno-18-67" name="__codelineno-18-67" href="#__codelineno-18-67"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;❌ No internet connection&quot;</span>
+</span><span id="__span-18-68"><a id="__codelineno-18-68" name="__codelineno-18-68" href="#__codelineno-18-68"></a><span class="k">fi</span>
+</span><span id="__span-18-69"><a id="__codelineno-18-69" name="__codelineno-18-69" href="#__codelineno-18-69"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+</span><span id="__span-18-70"><a id="__codelineno-18-70" name="__codelineno-18-70" href="#__codelineno-18-70"></a>
+</span><span id="__span-18-71"><a id="__codelineno-18-71" name="__codelineno-18-71" href="#__codelineno-18-71"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;==========================================&quot;</span>
+</span><span id="__span-18-72"><a id="__codelineno-18-72" name="__codelineno-18-72" href="#__codelineno-18-72"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Environment check complete!&quot;</span>
+</span><span id="__span-18-73"><a id="__codelineno-18-73" name="__codelineno-18-73" href="#__codelineno-18-73"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;==========================================&quot;</span>
 </span></code></pre></div></p>
 <p><strong>Save and exit:</strong> Ctrl+X, then Y, then Enter</p>
 <hr />
 <h3 id="make-script-executable">Make Script Executable<a class="headerlink" href="#make-script-executable" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>chmod<span class="w"> </span>+x<span class="w"> </span>~/simtofly_ws/scripts/check_environment.sh
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>chmod<span class="w"> </span>+x<span class="w"> </span>~/simtofly_ws/scripts/check_environment.sh
 </span></code></pre></div>
 <hr />
 <h3 id="run-verification">Run Verification<a class="headerlink" href="#run-verification" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>~/simtofly_ws/scripts/check_environment.sh
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>~/simtofly_ws/scripts/check_environment.sh
 </span></code></pre></div>
 <p><strong>Expected output:</strong>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>==========================================
-</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>SimToFly Environment Check
-</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>==========================================
-</span><span id="__span-35-4"><a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>
-</span><span id="__span-35-5"><a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a>Checking Ubuntu version...
-</span><span id="__span-35-6"><a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a>✅ Ubuntu 22.04 detected
-</span><span id="__span-35-7"><a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a>
-</span><span id="__span-35-8"><a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a>Checking disk space...
-</span><span id="__span-35-9"><a id="__codelineno-35-9" name="__codelineno-35-9" href="#__codelineno-35-9"></a>✅ Sufficient disk space: 45GB available
-</span><span id="__span-35-10"><a id="__codelineno-35-10" name="__codelineno-35-10" href="#__codelineno-35-10"></a>
-</span><span id="__span-35-11"><a id="__codelineno-35-11" name="__codelineno-35-11" href="#__codelineno-35-11"></a>Checking RAM...
-</span><span id="__span-35-12"><a id="__codelineno-35-12" name="__codelineno-35-12" href="#__codelineno-35-12"></a>✅ Sufficient RAM: 8GB
-</span><span id="__span-35-13"><a id="__codelineno-35-13" name="__codelineno-35-13" href="#__codelineno-35-13"></a>
-</span><span id="__span-35-14"><a id="__codelineno-35-14" name="__codelineno-35-14" href="#__codelineno-35-14"></a>Checking essential tools...
-</span><span id="__span-35-15"><a id="__codelineno-35-15" name="__codelineno-35-15" href="#__codelineno-35-15"></a>✅ gcc installed
-</span><span id="__span-35-16"><a id="__codelineno-35-16" name="__codelineno-35-16" href="#__codelineno-35-16"></a>✅ g++ installed
-</span><span id="__span-35-17"><a id="__codelineno-35-17" name="__codelineno-35-17" href="#__codelineno-35-17"></a>✅ make installed
-</span><span id="__span-35-18"><a id="__codelineno-35-18" name="__codelineno-35-18" href="#__codelineno-35-18"></a>✅ git installed
-</span><span id="__span-35-19"><a id="__codelineno-35-19" name="__codelineno-35-19" href="#__codelineno-35-19"></a>✅ python3 installed
-</span><span id="__span-35-20"><a id="__codelineno-35-20" name="__codelineno-35-20" href="#__codelineno-35-20"></a>✅ pip3 installed
-</span><span id="__span-35-21"><a id="__codelineno-35-21" name="__codelineno-35-21" href="#__codelineno-35-21"></a>
-</span><span id="__span-35-22"><a id="__codelineno-35-22" name="__codelineno-35-22" href="#__codelineno-35-22"></a>Checking workspace structure...
-</span><span id="__span-35-23"><a id="__codelineno-35-23" name="__codelineno-35-23" href="#__codelineno-35-23"></a>✅ ardupilot directory exists
-</span><span id="__span-35-24"><a id="__codelineno-35-24" name="__codelineno-35-24" href="#__codelineno-35-24"></a>✅ logs directory exists
-</span><span id="__span-35-25"><a id="__codelineno-35-25" name="__codelineno-35-25" href="#__codelineno-35-25"></a>✅ missions directory exists
-</span><span id="__span-35-26"><a id="__codelineno-35-26" name="__codelineno-35-26" href="#__codelineno-35-26"></a>✅ scripts directory exists
-</span><span id="__span-35-27"><a id="__codelineno-35-27" name="__codelineno-35-27" href="#__codelineno-35-27"></a>✅ ros2_ws directory exists
-</span><span id="__span-35-28"><a id="__codelineno-35-28" name="__codelineno-35-28" href="#__codelineno-35-28"></a>
-</span><span id="__span-35-29"><a id="__codelineno-35-29" name="__codelineno-35-29" href="#__codelineno-35-29"></a>Checking internet connection...
-</span><span id="__span-35-30"><a id="__codelineno-35-30" name="__codelineno-35-30" href="#__codelineno-35-30"></a>✅ Internet connection working
-</span><span id="__span-35-31"><a id="__codelineno-35-31" name="__codelineno-35-31" href="#__codelineno-35-31"></a>
-</span><span id="__span-35-32"><a id="__codelineno-35-32" name="__codelineno-35-32" href="#__codelineno-35-32"></a>==========================================
-</span><span id="__span-35-33"><a id="__codelineno-35-33" name="__codelineno-35-33" href="#__codelineno-35-33"></a>Environment check complete!
-</span><span id="__span-35-34"><a id="__codelineno-35-34" name="__codelineno-35-34" href="#__codelineno-35-34"></a>==========================================
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>==========================================
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>SimToFly Environment Check
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>==========================================
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>Checking Ubuntu version...
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>✅ Ubuntu 22.04 detected
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>Checking disk space...
+</span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>✅ Sufficient disk space: 45GB available
+</span><span id="__span-21-10"><a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a>
+</span><span id="__span-21-11"><a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a>Checking RAM...
+</span><span id="__span-21-12"><a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a>✅ Sufficient RAM: 8GB
+</span><span id="__span-21-13"><a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a>
+</span><span id="__span-21-14"><a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a>Checking essential tools...
+</span><span id="__span-21-15"><a id="__codelineno-21-15" name="__codelineno-21-15" href="#__codelineno-21-15"></a>✅ gcc installed
+</span><span id="__span-21-16"><a id="__codelineno-21-16" name="__codelineno-21-16" href="#__codelineno-21-16"></a>✅ g++ installed
+</span><span id="__span-21-17"><a id="__codelineno-21-17" name="__codelineno-21-17" href="#__codelineno-21-17"></a>✅ make installed
+</span><span id="__span-21-18"><a id="__codelineno-21-18" name="__codelineno-21-18" href="#__codelineno-21-18"></a>✅ git installed
+</span><span id="__span-21-19"><a id="__codelineno-21-19" name="__codelineno-21-19" href="#__codelineno-21-19"></a>✅ python3 installed
+</span><span id="__span-21-20"><a id="__codelineno-21-20" name="__codelineno-21-20" href="#__codelineno-21-20"></a>✅ pip3 installed
+</span><span id="__span-21-21"><a id="__codelineno-21-21" name="__codelineno-21-21" href="#__codelineno-21-21"></a>✅ tree installed
+</span><span id="__span-21-22"><a id="__codelineno-21-22" name="__codelineno-21-22" href="#__codelineno-21-22"></a>
+</span><span id="__span-21-23"><a id="__codelineno-21-23" name="__codelineno-21-23" href="#__codelineno-21-23"></a>Checking workspace structure...
+</span><span id="__span-21-24"><a id="__codelineno-21-24" name="__codelineno-21-24" href="#__codelineno-21-24"></a>✅ logs directory exists
+</span><span id="__span-21-25"><a id="__codelineno-21-25" name="__codelineno-21-25" href="#__codelineno-21-25"></a>✅ missions directory exists
+</span><span id="__span-21-26"><a id="__codelineno-21-26" name="__codelineno-21-26" href="#__codelineno-21-26"></a>✅ scripts directory exists
+</span><span id="__span-21-27"><a id="__codelineno-21-27" name="__codelineno-21-27" href="#__codelineno-21-27"></a>✅ ros2_ws directory exists
+</span><span id="__span-21-28"><a id="__codelineno-21-28" name="__codelineno-21-28" href="#__codelineno-21-28"></a>
+</span><span id="__span-21-29"><a id="__codelineno-21-29" name="__codelineno-21-29" href="#__codelineno-21-29"></a>Checking internet connection...
+</span><span id="__span-21-30"><a id="__codelineno-21-30" name="__codelineno-21-30" href="#__codelineno-21-30"></a>✅ Internet connection working
+</span><span id="__span-21-31"><a id="__codelineno-21-31" name="__codelineno-21-31" href="#__codelineno-21-31"></a>
+</span><span id="__span-21-32"><a id="__codelineno-21-32" name="__codelineno-21-32" href="#__codelineno-21-32"></a>==========================================
+</span><span id="__span-21-33"><a id="__codelineno-21-33" name="__codelineno-21-33" href="#__codelineno-21-33"></a>Environment check complete!
+</span><span id="__span-21-34"><a id="__codelineno-21-34" name="__codelineno-21-34" href="#__codelineno-21-34"></a>==========================================
 </span></code></pre></div></p>
 <p>✅ <strong>All checks pass:</strong> Your environment is ready!</p>
 <p>⚠️ <strong>Some checks fail:</strong> Review and fix issues before continuing.</p>
 <hr />
-<h2 id="final-checklist">📝 Final Checklist<a class="headerlink" href="#final-checklist" title="Permanent link">&para;</a></h2>
+<h2 id="final-checklist">📋 Final Checklist<a class="headerlink" href="#final-checklist" title="Permanent link">&para;</a></h2>
 <p>Before moving to next section, verify:</p>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ✅ System fully updated (<code>apt update &amp;&amp; upgrade</code> completed)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ✅ System fully updated (<code>apt update &amp;&amp; upgrade</code>)</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ✅ Rebooted after updates</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ✅ Essential tools installed (gcc, git, python3)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ✅ Terminal configured with aliases</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ✅ Essential tools installed (gcc, git, python3, tree)</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ✅ Workspace structure created (<code>~/simtofly_ws/</code>)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ✅ Git configured with your name and email</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ✅ Verification script runs successfully</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ✅ All checks in verification script pass</li>
 </ul>
 <p><strong>All checked?</strong> You're ready for ArduPilot SITL! 🚀</p>
 <hr />
-<h2 id="what-you-accomplished">�� What You Accomplished<a class="headerlink" href="#what-you-accomplished" title="Permanent link">&para;</a></h2>
+<h2 id="what-you-accomplished">🎯 What You Accomplished<a class="headerlink" href="#what-you-accomplished" title="Permanent link">&para;</a></h2>
 <ul>
 <li>✅ Updated Ubuntu to latest packages</li>
 <li>✅ Installed development tools (gcc, git, python3)</li>
-<li>✅ Configured terminal for efficiency</li>
 <li>✅ Created organized workspace structure</li>
-<li>✅ Set up git configuration</li>
-<li>✅ Verified environment is ready</li>
+<li>✅ Set up workspace environment variable</li>
 <li>✅ Created verification script for future checks</li>
+<li>✅ Verified environment is ready</li>
 </ul>
+<p><strong>Your system is now ready for ArduPilot SITL installation!</strong></p>
 <hr />
 <h2 id="next-steps">🚀 Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
 <p>Continue to <strong><a href="../1.3-ardupilot-sitl/">1.3 ArduPilot SITL Installation</a></strong> where we'll:
-- Download ArduPilot source code
+- Clone ArduPilot source code
 - Install ArduPilot dependencies
 - Build SITL simulator
 - Launch your first virtual drone
@@ -1645,49 +1543,55 @@
 <hr />
 <h2 id="common-questions">❓ Common Questions<a class="headerlink" href="#common-questions" title="Permanent link">&para;</a></h2>
 <h3 id="q-do-i-need-to-run-the-verification-script-every-time">Q: Do I need to run the verification script every time?<a class="headerlink" href="#q-do-i-need-to-run-the-verification-script-every-time" title="Permanent link">&para;</a></h3>
-<p><strong>A:</strong> No, just once now to confirm setup. But you can run it anytime if something breaks.</p>
+<p><strong>A:</strong> No, just once now to confirm setup. Run it again only if something breaks later.</p>
+<hr />
 <h3 id="q-can-i-use-a-different-workspace-location">Q: Can I use a different workspace location?<a class="headerlink" href="#q-can-i-use-a-different-workspace-location" title="Permanent link">&para;</a></h3>
-<p><strong>A:</strong> Yes, but stick with <code>~/simtofly_ws/</code> for consistency with this tutorial. Changing locations means adapting all commands.</p>
+<p><strong>A:</strong> Yes, but stick with <code>~/simtofly_ws/</code> for consistency with this tutorial. If you change it, you'll need to adapt all commands.</p>
+<hr />
 <h3 id="q-the-update-took-very-long-is-this-normal">Q: The update took very long, is this normal?<a class="headerlink" href="#q-the-update-took-very-long-is-this-normal" title="Permanent link">&para;</a></h3>
 <p><strong>A:</strong> Yes, first update after fresh Ubuntu install can take 15-30 minutes depending on internet speed and pending updates.</p>
+<hr />
 <h3 id="q-i-got-errors-during-apt-upgrade-what-do-i-do">Q: I got errors during <code>apt upgrade</code>, what do I do?<a class="headerlink" href="#q-i-got-errors-during-apt-upgrade-what-do-i-do" title="Permanent link">&para;</a></h3>
 <p><strong>A:</strong> Read the error message carefully. Common fixes:
 - Run <code>sudo apt --fix-broken install</code>
 - Try <code>sudo dpkg --configure -a</code>
 - Reboot and try again
 - Search the specific error online</p>
-<h3 id="q-can-i-skip-the-terminal-customization">Q: Can I skip the terminal customization?<a class="headerlink" href="#q-can-i-skip-the-terminal-customization" title="Permanent link">&para;</a></h3>
-<p><strong>A:</strong> Yes, it's optional. But aliases and colors make your life easier, especially for beginners.</p>
+<hr />
+<h3 id="q-why-dont-we-create-the-ardupilot-folder-here">Q: Why don't we create the ardupilot folder here?<a class="headerlink" href="#q-why-dont-we-create-the-ardupilot-folder-here" title="Permanent link">&para;</a></h3>
+<p><strong>A:</strong> We'll clone ArduPilot directly in Section 1.3, which automatically creates the <code>ardupilot/</code> directory. Creating it now would cause confusion with nested paths.</p>
 <hr />
 <h2 id="troubleshooting">🐛 Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
 <h3 id="unable-to-locate-package-errors">"Unable to locate package" errors<a class="headerlink" href="#unable-to-locate-package-errors" title="Permanent link">&para;</a></h3>
 <p><strong>Cause:</strong> Package repositories not updated</p>
 <p><strong>Solution:</strong>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
-</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span><span class="o">[</span>package-name<span class="o">]</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span><span class="o">[</span>package-name<span class="o">]</span>
 </span></code></pre></div></p>
 <hr />
 <h3 id="permission-denied-when-creating-directories">"Permission denied" when creating directories<a class="headerlink" href="#permission-denied-when-creating-directories" title="Permanent link">&para;</a></h3>
 <p><strong>Cause:</strong> Trying to create in protected location</p>
-<p><strong>Solution:</strong> Make sure you're creating in your home directory (<code>~/</code>), not system directories.</p>
+<p><strong>Solution:</strong> Make sure you're creating in your home directory (<code>~/</code>), not system directories like <code>/opt/</code> or <code>/usr/</code>.</p>
 <hr />
 <h3 id="verification-script-shows-command-not-found">Verification script shows "command not found"<a class="headerlink" href="#verification-script-shows-command-not-found" title="Permanent link">&para;</a></h3>
 <p><strong>Cause:</strong> Script doesn't have execute permission</p>
 <p><strong>Solution:</strong>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>chmod<span class="w"> </span>+x<span class="w"> </span>~/simtofly_ws/scripts/check_environment.sh
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>chmod<span class="w"> </span>+x<span class="w"> </span>~/simtofly_ws/scripts/check_environment.sh
 </span></code></pre></div></p>
 <hr />
 <h3 id="terminal-changes-dont-apply">Terminal changes don't apply<a class="headerlink" href="#terminal-changes-dont-apply" title="Permanent link">&para;</a></h3>
 <p><strong>Cause:</strong> Didn't reload bashrc</p>
 <p><strong>Solution:</strong>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="nb">source</span><span class="w"> </span>~/.bashrc
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="nb">source</span><span class="w"> </span>~/.bashrc
 </span></code></pre></div></p>
 <p>Or close and reopen terminal.</p>
 <hr />
-<h3 id="git-config-commands-fail">Git config commands fail<a class="headerlink" href="#git-config-commands-fail" title="Permanent link">&para;</a></h3>
-<p><strong>Cause:</strong> Git not installed</p>
+<h3 id="some-packages-fail-to-install">Some packages fail to install<a class="headerlink" href="#some-packages-fail-to-install" title="Permanent link">&para;</a></h3>
+<p><strong>Cause:</strong> Broken dependencies or repository issues</p>
 <p><strong>Solution:</strong>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>git
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>--fix-broken<span class="w"> </span>install
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span><span class="o">[</span>package-names<span class="o">]</span>
 </span></code></pre></div></p>
 <hr />
 <p><a href="../1.1-prerequisites/">← Back: 1.1 Prerequisites</a> | <a href="../1.3-ardupilot-sitl/">Next: 1.3 ArduPilot SITL →</a></p>

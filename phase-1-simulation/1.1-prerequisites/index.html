@@ -617,17 +617,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ubuntu-installation-guide" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        📋 Ubuntu Installation Guide
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#verification-steps" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -642,7 +631,7 @@
   <a href="#pre-flight-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📝 Pre-Flight Checklist
+        📋 Pre-Flight Checklist
       
     </span>
   </a>
@@ -1149,17 +1138,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ubuntu-installation-guide" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        📋 Ubuntu Installation Guide
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#verification-steps" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1174,7 +1152,7 @@
   <a href="#pre-flight-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📝 Pre-Flight Checklist
+        📋 Pre-Flight Checklist
       
     </span>
   </a>
@@ -1253,11 +1231,12 @@
 <h1 id="11-prerequisites-and-setup">1.1 Prerequisites and Setup<a class="headerlink" href="#11-prerequisites-and-setup" title="Permanent link">&para;</a></h1>
 <h2 id="what-youll-learn">What You'll Learn<a class="headerlink" href="#what-youll-learn" title="Permanent link">&para;</a></h2>
 <p>Before diving into drone simulation, we'll make sure you have:
-- ✅ The right hardware (computer specifications)
+- ✅ The right computer (hardware specifications)
 - ✅ The right software (Ubuntu 22.04)
 - ✅ Understanding of time commitment
 - ✅ Proper expectations for the journey ahead</p>
-<p><strong>Time:</strong> 15-20 minutes reading + setup time</p>
+<p>This ensures a smooth learning experience without technical roadblocks.</p>
+<p><strong>Time:</strong> 15-20 minutes reading + setup time (if needed)</p>
 <hr />
 <h2 id="hardware-requirements">🖥️ Hardware Requirements<a class="headerlink" href="#hardware-requirements" title="Permanent link">&para;</a></h2>
 <h3 id="minimum-requirements">Minimum Requirements<a class="headerlink" href="#minimum-requirements" title="Permanent link">&para;</a></h3>
@@ -1311,96 +1290,64 @@
 </tbody>
 </table>
 <h3 id="can-i-use-windows-or-macos">Can I Use Windows or macOS?<a class="headerlink" href="#can-i-use-windows-or-macos" title="Permanent link">&para;</a></h3>
-<p><strong>Short answer:</strong> Use Ubuntu (VM or native).</p>
+<p><strong>Short answer:</strong> Use Ubuntu 22.04 (VM, dual-boot, or native).</p>
 <p><strong>Why Ubuntu 22.04 specifically?</strong>
 - ArduPilot officially supports Ubuntu
 - ROS2 Humble targets Ubuntu 22.04 LTS
 - All our instructions tested on this version
-- Community support is strongest here</p>
-<p><strong>Options if you don't have Ubuntu:</strong></p>
-<ol>
-<li><strong>Virtual Machine (VM)</strong> — Install VirtualBox/VMware, run Ubuntu inside</li>
-<li><strong>Pros:</strong> Keep your current OS, easy to snapshot</li>
-<li><strong>Cons:</strong> Slower performance, Gazebo may lag</li>
-<li>
-<p><strong>Good for:</strong> Learning and testing</p>
-</li>
-<li>
-<p><strong>Dual Boot</strong> — Install Ubuntu alongside Windows/macOS</p>
-</li>
-<li><strong>Pros:</strong> Full hardware performance</li>
-<li><strong>Cons:</strong> Requires disk partitioning, more setup</li>
-<li>
-<p><strong>Good for:</strong> Serious development</p>
-</li>
-<li>
-<p><strong>Native Ubuntu</strong> — Dedicate machine to Ubuntu</p>
-</li>
-<li><strong>Pros:</strong> Best performance, no compromises</li>
-<li><strong>Cons:</strong> Need dedicated hardware</li>
-<li><strong>Good for:</strong> Long-term drone development</li>
-</ol>
-<p><strong>Our recommendation:</strong> Start with VM if unsure, migrate to native/dual-boot later if performance becomes an issue.</p>
+- Strongest community support</p>
+<p><strong>Don't have Ubuntu 22.04?</strong> See <strong><a href="../../appendix/ubuntu-install/">Appendix: Ubuntu Installation</a></strong> for detailed setup guides (VM, dual-boot, or native).</p>
 <hr />
 <h2 id="software-requirements">💿 Software Requirements<a class="headerlink" href="#software-requirements" title="Permanent link">&para;</a></h2>
 <h3 id="operating-system">Operating System<a class="headerlink" href="#operating-system" title="Permanent link">&para;</a></h3>
 <p><strong>Required:</strong> Ubuntu 22.04 LTS (Jammy Jellyfish)</p>
 <p><strong>Download:</strong> https://ubuntu.com/download/desktop</p>
-<p><strong>Why this version?</strong>
-- LTS (Long Term Support) — Stable, supported until 2027
-- ROS2 Humble officially supports it
-- ArduPilot SITL tested on it
-- This tutorial verified on it</p>
-<p><strong>Don't use:</strong>
-- ❌ Ubuntu 20.04 (ROS2 Foxy is EOL)
-- ❌ Ubuntu 24.04 (too new, compatibility issues)
+<p><strong>Why this specific version?</strong>
+- <strong>LTS (Long Term Support)</strong> — Stable, supported until 2027
+- <strong>ROS2 Humble</strong> officially supports it
+- <strong>ArduPilot SITL</strong> tested and documented for it
+- <strong>This tutorial</strong> verified on this version</p>
+<p><strong>Important:</strong> 
+- ❌ Don't use Ubuntu 20.04 (ROS2 Foxy is end-of-life)
+- ❌ Don't use Ubuntu 24.04 (too new, compatibility issues)
 - ❌ Other Linux distros (different package managers, untested)</p>
+<p><strong>Need help installing Ubuntu?</strong> See <strong><a href="../../appendix/ubuntu-install/">Appendix: Ubuntu Installation</a></strong> for step-by-step guides.</p>
+<hr />
 <h3 id="software-well-install-later-sections">Software We'll Install (Later Sections)<a class="headerlink" href="#software-well-install-later-sections" title="Permanent link">&para;</a></h3>
-<p>Don't install these now — we'll do it step-by-step:</p>
-<ul>
-<li><strong>Phase 1:</strong></li>
-<li>ArduPilot SITL (Software In The Loop simulator)</li>
-<li>MAVProxy (Command-line ground control)</li>
-<li>
-<p>Gazebo Garden (3D physics simulator)</p>
-</li>
-<li>
-<p><strong>Phase 2:</strong></p>
-</li>
-<li>ROS2 Humble (Robot Operating System)</li>
-<li>MAVROS (MAVLink ↔ ROS2 bridge)</li>
-<li>
-<p>RViz (ROS visualization tool)</p>
-</li>
-<li>
-<p><strong>Phase 3:</strong></p>
-</li>
-<li>Various tools for Raspberry Pi setup</li>
-</ul>
+<p>Don't install these now — we'll do it step-by-step together:</p>
+<p><strong>Phase 1 (Simulation):</strong>
+- ArduPilot SITL (Software In The Loop simulator)
+- MAVProxy (Command-line ground control)
+- Gazebo Harmonic (3D physics simulator)</p>
+<p><strong>Phase 2 (ROS2 Integration):</strong>
+- ROS2 Humble (Robot Operating System)
+- MAVROS (MAVLink ↔ ROS2 bridge)
+- RViz (ROS visualization tool)</p>
 <p><strong>Total download size:</strong> ~10-15 GB<br />
 <strong>Total disk space after install:</strong> ~25-30 GB</p>
 <hr />
 <h2 id="time-commitment">⏱️ Time Commitment<a class="headerlink" href="#time-commitment" title="Permanent link">&para;</a></h2>
-<p>Be realistic about time investment:</p>
+<p>Be realistic about time investment to avoid frustration:</p>
 <h3 id="phase-1-simulation-this-phase">Phase 1: Simulation (This Phase)<a class="headerlink" href="#phase-1-simulation-this-phase" title="Permanent link">&para;</a></h3>
-<p><strong>Estimated:</strong> 6-8 hours total
-- Spread over multiple sessions
-- Don't rush — understanding matters more than speed
-- Each section builds on previous</p>
+<p><strong>Estimated:</strong> 6-8 hours total</p>
+<p>Spread over multiple sessions — don't rush! Understanding matters more than speed. Each section builds on previous ones.</p>
 <p><strong>Suggested pace:</strong>
 - <strong>Week 1:</strong> Sections 1.1-1.3 (environment + SITL)
 - <strong>Week 2:</strong> Sections 1.4-1.6 (control + Gazebo + missions)</p>
 <h3 id="full-tutorial-all-4-phases">Full Tutorial (All 4 Phases)<a class="headerlink" href="#full-tutorial-all-4-phases" title="Permanent link">&para;</a></h3>
-<p><strong>Estimated:</strong> 40-60 hours total
-- Phase 1: 6-8 hours (simulation)
-- Phase 2: 12-16 hours (ROS2 integration)
-- Phase 3: 8-12 hours (companion computer)
-- Phase 4: 12-16 hours (real hardware)</p>
+<p><strong>Estimated:</strong> 40-60 hours total</p>
+<ul>
+<li><strong>Phase 1:</strong> 6-8 hours (simulation)</li>
+<li><strong>Phase 2:</strong> 12-16 hours (ROS2 integration)</li>
+<li><strong>Phase 3:</strong> 8-12 hours (companion computer)</li>
+<li><strong>Phase 4:</strong> 12-16 hours (real hardware)</li>
+</ul>
 <p><strong>This assumes:</strong>
 - Following tutorials carefully
-- Doing verification steps
+- Doing all verification steps
 - Some troubleshooting time
 - Not including hardware assembly</p>
+<p><strong>Take your time.</strong> Quality learning beats speed.</p>
 <hr />
 <h2 id="knowledge-prerequisites">🎓 Knowledge Prerequisites<a class="headerlink" href="#knowledge-prerequisites" title="Permanent link">&para;</a></h2>
 <h3 id="what-you-dont-need-to-know">What You DON'T Need to Know<a class="headerlink" href="#what-you-dont-need-to-know" title="Permanent link">&para;</a></h3>
@@ -1411,185 +1358,97 @@
 - ❌ Advanced programming
 - ❌ Robotics</p>
 <p><strong>We teach all of this from scratch.</strong></p>
+<hr />
 <h3 id="what-helps-but-not-required">What Helps (But Not Required)<a class="headerlink" href="#what-helps-but-not-required" title="Permanent link">&para;</a></h3>
 <p>Nice to have, but we'll teach as we go:
 - Basic Linux terminal commands (<code>cd</code>, <code>ls</code>, <code>mkdir</code>)
 - Basic Python reading (not writing complex code)
 - Understanding of 3D coordinates (x, y, z)
 - Patience and willingness to troubleshoot</p>
-<p><strong>If you've never used Linux terminal:</strong> That's okay! We explain every command.</p>
+<p><strong>Never used Linux terminal?</strong> That's okay! We explain every command.</p>
+<hr />
 <h3 id="essential-mindset">Essential Mindset<a class="headerlink" href="#essential-mindset" title="Permanent link">&para;</a></h3>
 <p>What you <strong>DO</strong> need:
-- ✅ Patience to follow step-by-step
-- ✅ Attention to detail (typos break things)
-- ✅ Willingness to read error messages
-- ✅ Comfort with trial and error
-- ✅ Safety-first attitude (especially Phase 4)</p>
+- ✅ <strong>Patience</strong> to follow step-by-step instructions
+- ✅ <strong>Attention to detail</strong> (typos break things)
+- ✅ <strong>Willingness to read error messages</strong> (they tell you what's wrong)
+- ✅ <strong>Comfort with trial and error</strong> (part of learning)
+- ✅ <strong>Safety-first attitude</strong> (especially for Phase 4 with real hardware)</p>
+<p><strong>Approach:</strong> Treat this as a journey, not a race. Every expert was once a beginner.</p>
 <hr />
 <h2 id="tools-youll-need">🛠️ Tools You'll Need<a class="headerlink" href="#tools-youll-need" title="Permanent link">&para;</a></h2>
 <h3 id="for-phase-1-now">For Phase 1 (Now)<a class="headerlink" href="#for-phase-1-now" title="Permanent link">&para;</a></h3>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Computer meeting hardware requirements</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Ubuntu 22.04 installed</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Text editor (gedit, nano, or VS Code)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Terminal application (built into Ubuntu)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Stable internet connection</li>
-</ul>
-<h3 id="for-phase-2-later">For Phase 2 (Later)<a class="headerlink" href="#for-phase-2-later" title="Permanent link">&para;</a></h3>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Same computer setup</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> More disk space for ROS2</li>
-</ul>
-<h3 id="for-phase-3-later">For Phase 3 (Later)<a class="headerlink" href="#for-phase-3-later" title="Permanent link">&para;</a></h3>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Raspberry Pi 4 (4GB+ RAM recommended)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> MicroSD card (32GB+ for Ubuntu)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> USB cable or network connection</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Optional: FTDI USB-to-Serial adapter (for testing)</li>
-</ul>
-<h3 id="for-phase-4-later">For Phase 4 (Later)<a class="headerlink" href="#for-phase-4-later" title="Permanent link">&para;</a></h3>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Flight controller (Pixhawk/Cube Orange)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Drone frame and components</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> RC transmitter and receiver</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Battery and charger</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Safety equipment</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Open outdoor space for testing</li>
-</ul>
-<p><strong>Don't buy hardware yet!</strong> Complete Phases 1-2 in simulation first.</p>
+<p>You need right now:
+- [ ] Computer meeting hardware requirements
+- [ ] Ubuntu 22.04 installed
+- [ ] Text editor (gedit, nano, or VS Code)
+- [ ] Terminal application (built into Ubuntu)
+- [ ] Stable internet connection</p>
+<p><strong>That's it for now!</strong> Everything else we'll install together in upcoming sections.</p>
 <hr />
-<h2 id="ubuntu-installation-guide">📋 Ubuntu Installation Guide<a class="headerlink" href="#ubuntu-installation-guide" title="Permanent link">&para;</a></h2>
-<h3 id="if-you-already-have-ubuntu-2204">If You Already Have Ubuntu 22.04<a class="headerlink" href="#if-you-already-have-ubuntu-2204" title="Permanent link">&para;</a></h3>
-<p>Skip to <a href="#verification-steps">Verification Steps</a> below.</p>
-<h3 id="if-you-need-to-install-ubuntu">If You Need to Install Ubuntu<a class="headerlink" href="#if-you-need-to-install-ubuntu" title="Permanent link">&para;</a></h3>
-<h4 id="option-1-virtual-machine-easiest-for-beginners">Option 1: Virtual Machine (Easiest for Beginners)<a class="headerlink" href="#option-1-virtual-machine-easiest-for-beginners" title="Permanent link">&para;</a></h4>
-<p><strong>Step 1:</strong> Download VirtualBox
-- Visit: https://www.virtualbox.org/
-- Download for your OS (Windows/macOS)
-- Install VirtualBox</p>
-<p><strong>Step 2:</strong> Download Ubuntu 22.04 ISO
-- Visit: https://ubuntu.com/download/desktop
-- Download Ubuntu 22.04.x LTS Desktop</p>
-<p><strong>Step 3:</strong> Create Virtual Machine
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>- Open VirtualBox
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>- Click &quot;New&quot;
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>- Name: Ubuntu-SimToFly
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>- Type: Linux
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>- Version: Ubuntu (64-bit)
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>- Memory: 8192 MB (8 GB) minimum
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>- Hard disk: Create virtual hard disk (50 GB+)
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>- Disk type: VDI
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>- Storage: Dynamically allocated
-</span></code></pre></div></p>
-<p><strong>Step 4:</strong> Install Ubuntu in VM
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>- Select your VM → Click &quot;Start&quot;
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>- Choose downloaded Ubuntu ISO
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>- Follow Ubuntu installation wizard
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>- Choose &quot;Normal installation&quot;
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>- Download updates during installation
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>- Install third-party software (for better hardware support)
-</span></code></pre></div></p>
-<p><strong>Step 5:</strong> Install VirtualBox Guest Additions
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>After Ubuntu boots:
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>- VM Menu → Devices → Insert Guest Additions CD
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>- Open terminal in Ubuntu:
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  sudo apt update
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>  sudo apt install build-essential dkms linux-headers-$(uname -r)
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>  sudo sh /media/$USER/VBox*/VBoxLinuxAdditions.run
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>- Reboot VM
-</span></code></pre></div></p>
-<h4 id="option-2-dual-boot-better-performance">Option 2: Dual Boot (Better Performance)<a class="headerlink" href="#option-2-dual-boot-better-performance" title="Permanent link">&para;</a></h4>
-<p><strong>Warning:</strong> This modifies your disk partitions. Back up important data first!</p>
-<ol>
-<li><strong>Create Ubuntu USB:</strong></li>
-<li>Download Rufus (Windows) or Etcher (macOS/Linux)</li>
-<li>
-<p>Flash Ubuntu 22.04 ISO to USB drive (8GB+)</p>
-</li>
-<li>
-<p><strong>Free up disk space:</strong></p>
-</li>
-<li>Windows: Disk Management → Shrink volume (50GB+)</li>
-<li>
-<p>macOS: Disk Utility → Partition</p>
-</li>
-<li>
-<p><strong>Boot from USB:</strong></p>
-</li>
-<li>Restart computer</li>
-<li>Enter BIOS/UEFI (usually F2, F12, Del, or Esc during boot)</li>
-<li>Change boot order: USB first</li>
-<li>
-<p>Save and exit</p>
-</li>
-<li>
-<p><strong>Install Ubuntu:</strong></p>
-</li>
-<li>Choose "Install Ubuntu"</li>
-<li>Select "Install Ubuntu alongside [your OS]"</li>
-<li>Follow installation wizard</li>
-<li>Reboot when complete</li>
-</ol>
-<p><strong>Resources:</strong>
-- Ubuntu dual-boot guide: https://help.ubuntu.com/community/WindowsDualBoot</p>
+<h3 id="for-later-phases">For Later Phases<a class="headerlink" href="#for-later-phases" title="Permanent link">&para;</a></h3>
+<p><strong>Don't buy hardware yet!</strong> Complete Phases 1-2 in simulation first.</p>
+<p><strong>Phase 3 (Companion Computer):</strong>
+- Raspberry Pi 4 (4GB+ RAM recommended)
+- MicroSD card (32GB+)
+- USB cable or network connection</p>
+<p><strong>Phase 4 (Real Hardware):</strong>
+- Flight controller (Pixhawk/Cube Orange)
+- Drone frame and components
+- RC transmitter and receiver
+- Battery and charger
+- Safety equipment
+- Open outdoor space for testing</p>
+<p>We'll provide detailed lists when you reach those phases.</p>
 <hr />
 <h2 id="verification-steps">✅ Verification Steps<a class="headerlink" href="#verification-steps" title="Permanent link">&para;</a></h2>
 <h3 id="check-your-ubuntu-version">Check Your Ubuntu Version<a class="headerlink" href="#check-your-ubuntu-version" title="Permanent link">&para;</a></h3>
 <p>Open terminal (Ctrl+Alt+T) and run:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>lsb_release<span class="w"> </span>-a
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>lsb_release<span class="w"> </span>-a
 </span></code></pre></div></p>
 <p><strong>Expected output:</strong>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Distributor ID: Ubuntu
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Description:    Ubuntu 22.04.x LTS
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Release:        22.04
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>Codename:       jammy
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Distributor ID: Ubuntu
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Description:    Ubuntu 22.04.x LTS
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Release:        22.04
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>Codename:       jammy
 </span></code></pre></div></p>
 <p>✅ <strong>Success:</strong> Shows Ubuntu 22.04<br />
-❌ <strong>Wrong version:</strong> Need to install Ubuntu 22.04</p>
+❌ <strong>Wrong version:</strong> Install Ubuntu 22.04 before continuing</p>
 <hr />
 <h3 id="check-system-resources">Check System Resources<a class="headerlink" href="#check-system-resources" title="Permanent link">&para;</a></h3>
 <p><strong>Check RAM:</strong>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>free<span class="w"> </span>-h
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>free<span class="w"> </span>-h
 </span></code></pre></div></p>
-<p><strong>Look for line:</strong> <code>Mem:</code> shows total RAM<br />
+<p><strong>Look for:</strong> <code>Mem:</code> line shows total RAM<br />
 ✅ <strong>Success:</strong> Shows 8GB or more<br />
 ⚠️ <strong>Warning:</strong> Less than 8GB will be slow</p>
+<hr />
 <p><strong>Check CPU:</strong>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>lscpu<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s2">&quot;^CPU\(s\)|Model name&quot;</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>lscpu<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s2">&quot;^CPU\(s\)|Model name&quot;</span>
 </span></code></pre></div></p>
 <p>✅ <strong>Success:</strong> Shows 4+ CPUs<br />
 ⚠️ <strong>Warning:</strong> Fewer cores will be slower</p>
+<hr />
 <p><strong>Check Disk Space:</strong>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>df<span class="w"> </span>-h<span class="w"> </span>/
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>df<span class="w"> </span>-h<span class="w"> </span>/
 </span></code></pre></div></p>
-<p><strong>Look for:</strong> <code>/</code> filesystem<br />
+<p><strong>Look for:</strong> <code>/</code> filesystem available space<br />
 ✅ <strong>Success:</strong> 30GB+ available<br />
 ❌ <strong>Insufficient:</strong> Free up space before continuing</p>
 <hr />
 <h3 id="test-internet-connection">Test Internet Connection<a class="headerlink" href="#test-internet-connection" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>ping<span class="w"> </span>-c<span class="w"> </span><span class="m">4</span><span class="w"> </span>google.com
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>ping<span class="w"> </span>-c<span class="w"> </span><span class="m">4</span><span class="w"> </span>google.com
 </span></code></pre></div>
 <p><strong>Expected output:</strong> Shows response times (e.g., "time=15.2 ms")<br />
 ✅ <strong>Success:</strong> Receives 4 packets<br />
 ❌ <strong>Fail:</strong> Check your network connection</p>
 <hr />
-<h3 id="update-system">Update System<a class="headerlink" href="#update-system" title="Permanent link">&para;</a></h3>
-<p><strong>Important:</strong> Do this now to avoid issues later.
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y
-</span></code></pre></div></p>
-<p><strong>This will take:</strong> 5-15 minutes depending on updates</p>
-<p><strong>When complete:</strong>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>sudo<span class="w"> </span>reboot
-</span></code></pre></div></p>
-<hr />
-<h2 id="pre-flight-checklist">📝 Pre-Flight Checklist<a class="headerlink" href="#pre-flight-checklist" title="Permanent link">&para;</a></h2>
+<h2 id="pre-flight-checklist">📋 Pre-Flight Checklist<a class="headerlink" href="#pre-flight-checklist" title="Permanent link">&para;</a></h2>
 <p>Before moving to next section, verify:</p>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ✅ Ubuntu 22.04 LTS installed and running</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ✅ System meets minimum requirements (8GB RAM, 4 cores, 30GB space)</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ✅ Internet connection working</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ✅ System fully updated (<code>apt update &amp;&amp; apt upgrade</code>)</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ✅ Comfortable opening terminal (Ctrl+Alt+T)</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ✅ Realistic time expectations set</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ✅ Ready to learn patiently</li>
@@ -1599,16 +1458,17 @@
 <h2 id="what-you-accomplished">🎯 What You Accomplished<a class="headerlink" href="#what-you-accomplished" title="Permanent link">&para;</a></h2>
 <ul>
 <li>✅ Understood hardware and software requirements</li>
-<li>✅ Installed Ubuntu 22.04 (if needed)</li>
+<li>✅ Confirmed Ubuntu 22.04 is installed (or know how to install it)</li>
 <li>✅ Verified system meets requirements</li>
-<li>✅ Updated system to latest packages</li>
 <li>✅ Set realistic expectations for journey ahead</li>
+<li>✅ Prepared mindset for learning</li>
 </ul>
 <hr />
 <h2 id="next-steps">🚀 Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
 <p>Continue to <strong><a href="../1.2-environment-setup/">1.2 Environment Setup</a></strong> where we'll:
-- Configure your terminal for efficiency
+- Update your system to latest packages
 - Install essential development tools
+- Configure your terminal (optional)
 - Setup your workspace directory structure
 - Prepare your system for ArduPilot SITL</p>
 <hr />
@@ -1619,31 +1479,38 @@
 - GUI applications (Gazebo, RViz need 3D graphics)
 - Real-time performance</p>
 <p>Use VM or dual-boot instead.</p>
+<hr />
 <h3 id="q-i-have-ubuntu-2004-do-i-need-to-upgrade">Q: I have Ubuntu 20.04, do I need to upgrade?<a class="headerlink" href="#q-i-have-ubuntu-2004-do-i-need-to-upgrade" title="Permanent link">&para;</a></h3>
 <p><strong>A:</strong> Yes. ROS2 Foxy (for Ubuntu 20.04) reached end-of-life. This tutorial uses ROS2 Humble which requires Ubuntu 22.04.</p>
+<hr />
 <h3 id="q-can-i-use-a-more-powerful-computer-for-better-performance">Q: Can I use a more powerful computer for better performance?<a class="headerlink" href="#q-can-i-use-a-more-powerful-computer-for-better-performance" title="Permanent link">&para;</a></h3>
-<p><strong>A:</strong> Absolutely! More RAM and CPU cores = smoother Gazebo simulation and faster builds.</p>
+<p><strong>A:</strong> Absolutely! More RAM and CPU cores = smoother Gazebo simulation and faster builds. Recommended specs will give you the best experience.</p>
+<hr />
 <h3 id="q-will-this-work-on-ubuntu-2404">Q: Will this work on Ubuntu 24.04?<a class="headerlink" href="#q-will-this-work-on-ubuntu-2404" title="Permanent link">&para;</a></h3>
-<p><strong>A:</strong> Not yet. Wait for ROS2 Jazzy to mature and for ArduPilot to officially support it. Stick with 22.04 for now.</p>
+<p><strong>A:</strong> Not yet. Wait for ROS2 Jazzy to mature and ArduPilot to officially support it. Stick with Ubuntu 22.04 for now (LTS until 2027).</p>
+<hr />
 <h3 id="q-im-stuck-on-installation-where-can-i-get-help">Q: I'm stuck on installation. Where can I get help?<a class="headerlink" href="#q-im-stuck-on-installation-where-can-i-get-help" title="Permanent link">&para;</a></h3>
 <p><strong>A:</strong> 
-1. Check Ubuntu installation guides: https://ubuntu.com/tutorials/install-ubuntu-desktop
-2. Search our issues: https://github.com/simtofly/simtofly-guide/issues
-3. Open new issue with your specific problem</p>
+1. Check <strong><a href="../../appendix/ubuntu-install/">Appendix: Ubuntu Installation</a></strong> for detailed guides
+2. Search Ubuntu installation guides: https://ubuntu.com/tutorials/install-ubuntu-desktop
+3. Search our issues: https://github.com/simtofly/simtofly-guide/issues
+4. Open new issue with your specific problem</p>
 <hr />
 <h2 id="troubleshooting">🐛 Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
 <h3 id="virtual-machine-is-very-slow">Virtual Machine is Very Slow<a class="headerlink" href="#virtual-machine-is-very-slow" title="Permanent link">&para;</a></h3>
 <p><strong>Solutions:</strong>
-1. Allocate more RAM (8GB → 12GB if possible)
+1. Allocate more RAM (8GB → 12GB if host allows)
 2. Allocate more CPU cores (2 → 4+ if available)
 3. Enable 3D acceleration in VM settings
 4. Close other applications on host machine
 5. Consider dual-boot for better performance</p>
+<hr />
 <h3 id="ubuntu-wont-boot-after-dual-boot-install">Ubuntu Won't Boot After Dual-Boot Install<a class="headerlink" href="#ubuntu-wont-boot-after-dual-boot-install" title="Permanent link">&para;</a></h3>
 <p><strong>Solutions:</strong>
 1. Check BIOS boot order (Ubuntu should be first)
 2. Repair GRUB bootloader (search: "repair grub ubuntu")
-3. If stuck, seek help on Ubuntu forums</p>
+3. If stuck, seek help on Ubuntu forums with your specific setup</p>
+<hr />
 <h3 id="system-requirements-not-met">System Requirements Not Met<a class="headerlink" href="#system-requirements-not-met" title="Permanent link">&para;</a></h3>
 <p><strong>Solutions:</strong>
 1. <strong>Low RAM:</strong> Add more RAM to computer, or use lighter VM settings
