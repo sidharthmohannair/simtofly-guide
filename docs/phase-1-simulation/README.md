@@ -7,6 +7,7 @@ Master autonomous drone fundamentals in a safe, virtual environment.
 ## Overview
 
 In Phase 1, you'll learn:
+
 - ✅ Setup complete simulation environment
 - ✅ Understand ArduPilot SITL
 - ✅ Control drones via command line
