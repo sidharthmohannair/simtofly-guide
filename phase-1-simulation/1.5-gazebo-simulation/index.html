@@ -1617,13 +1617,58 @@
 <p><strong>In map window:</strong>
 - Drone position displayed</p>
 <p>✅ <strong>Success:</strong> All windows show drone data</p>
+<p><strong>Here's a quick reference of what each window does:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Window #</th>
+<th>Name</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Gazebo Launch Terminal</td>
+<td>Gazebo output logs and messages</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Gazebo 3D Simulator</td>
+<td>3D visualization of drone and environment</td>
+</tr>
+<tr>
+<td>3</td>
+<td>SITL Main Terminal</td>
+<td>Enter MAVProxy commands (arm, takeoff, etc.)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>MAVProxy Status</td>
+<td>System messages, errors, and status updates</td>
+</tr>
+<tr>
+<td>5</td>
+<td>MAVProxy 2D Map</td>
+<td>Top-down view of drone position and waypoints</td>
+</tr>
+<tr>
+<td>6</td>
+<td>MAVProxy Console</td>
+<td>Real-time telemetry (altitude, speed, battery, GPS)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note:</strong> Windows 1-2 are the Gazebo simulator running separately, while Windows 3-6 all are part of MAVProxy/SITL.</p>
 <hr />
 <h2 id="test-flight-in-gazebo">🎮 Test Flight in Gazebo<a class="headerlink" href="#test-flight-in-gazebo" title="Permanent link">&para;</a></h2>
 <h3 id="arm-and-takeoff">Arm and Takeoff<a class="headerlink" href="#arm-and-takeoff" title="Permanent link">&para;</a></h3>
 <p>In SITL terminal (Terminal 2):
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>mode<span class="w"> </span>GUIDED
-</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>arm<span class="w"> </span>throttle
-</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>takeoff<span class="w"> </span><span class="m">10</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>arm<span class="w"> </span>throttle
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>takeoff<span class="w"> </span><span class="m">10</span>
 </span></code></pre></div></p>
 <p><strong>Watch in Gazebo:</strong>
 - Propellers start spinning
@@ -1651,12 +1696,12 @@
 <p><strong>Try clicking different locations on the map to see the drone respond!</strong></p>
 <hr />
 <p><strong>Return to Launch:</strong>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>mode<span class="w"> </span>RTL
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>mode<span class="w"> </span>RTL
 </span></code></pre></div></p>
 <p>Drone automatically returns to takeoff position.</p>
 <p><strong>OR</strong></p>
 <h3 id="land">Land<a class="headerlink" href="#land" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>land
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>land
 </span></code></pre></div>
 <p><strong>Watch in Gazebo:</strong>
 - Drone descends smoothly
@@ -1720,12 +1765,12 @@
 <h3 id="launch-different-world">Launch Different World<a class="headerlink" href="#launch-different-world" title="Permanent link">&para;</a></h3>
 <p><strong>Example: Launch in warehouse:</strong></p>
 <p><strong>Terminal 1:</strong>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>gz<span class="w"> </span>sim<span class="w"> </span>-v4<span class="w"> </span>-r<span class="w"> </span>iris_warehouse.sdf
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>gz<span class="w"> </span>sim<span class="w"> </span>-v4<span class="w"> </span>-r<span class="w"> </span>iris_warehouse.sdf
 </span></code></pre></div></p>
 <p><strong>⏳ Note:</strong> The warehouse world may take <strong>3-5 minutes</strong> to load on first launch. It downloads 3D models from the internet, so ensure you have a <strong>stable internet connection</strong>. The Gazebo window may appear frozen during download — this is normal. Subsequent launches will be much faster as models are cached locally.</p>
 <p><strong>Terminal 2:</strong>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="nb">cd</span><span class="w"> </span>~/simtofly_ws/ardupilot/ArduCopter
-</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>sim_vehicle.py<span class="w"> </span>-v<span class="w"> </span>ArduCopter<span class="w"> </span>-f<span class="w"> </span>gazebo-iris<span class="w"> </span>--model<span class="w"> </span>JSON<span class="w"> </span>--map<span class="w"> </span>--console
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="nb">cd</span><span class="w"> </span>~/simtofly_ws/ardupilot/ArduCopter
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>sim_vehicle.py<span class="w"> </span>-v<span class="w"> </span>ArduCopter<span class="w"> </span>-f<span class="w"> </span>gazebo-iris<span class="w"> </span>--model<span class="w"> </span>JSON<span class="w"> </span>--map<span class="w"> </span>--console
 </span></code></pre></div></p>
 <p><strong>Try different worlds to test various flight scenarios!</strong></p>
 <hr />
@@ -1801,21 +1846,21 @@
 <h2 id="troubleshooting-plugin-build">🐛 Troubleshooting Plugin Build<a class="headerlink" href="#troubleshooting-plugin-build" title="Permanent link">&para;</a></h2>
 <h3 id="error-could-not-find-opencv">Error: "Could not find OpenCV" ⚠️<a class="headerlink" href="#error-could-not-find-opencv" title="Permanent link">&para;</a></h3>
 <p><strong>Full error message:</strong>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>CMake Error at CMakeLists.txt:86 (find_package):
-</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>  By not providing &quot;FindOpenCV.cmake&quot; in CMAKE_MODULE_PATH this project has
-</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>  asked CMake to find a package configuration file provided by &quot;OpenCV&quot;, but
-</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>  CMake did not find one.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>CMake Error at CMakeLists.txt:86 (find_package):
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>  By not providing &quot;FindOpenCV.cmake&quot; in CMAKE_MODULE_PATH this project has
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>  asked CMake to find a package configuration file provided by &quot;OpenCV&quot;, but
+</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>  CMake did not find one.
 </span></code></pre></div></p>
 <p><strong>Cause:</strong> Missing OpenCV and GStreamer dependencies.</p>
 <p><strong>Solution:</strong>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
-</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>libopencv-dev<span class="w"> </span>libgstreamer1.0-dev<span class="w"> </span>libgstreamer-plugins-base1.0-dev<span class="w"> </span>gstreamer1.0-plugins-bad<span class="w"> </span>gstreamer1.0-libav<span class="w"> </span>gstreamer1.0-gl<span class="w"> </span>-y
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>libopencv-dev<span class="w"> </span>libgstreamer1.0-dev<span class="w"> </span>libgstreamer-plugins-base1.0-dev<span class="w"> </span>gstreamer1.0-plugins-bad<span class="w"> </span>gstreamer1.0-libav<span class="w"> </span>gstreamer1.0-gl<span class="w"> </span>-y
 </span></code></pre></div></p>
 <p><strong>Then clean and rebuild:</strong>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="nb">cd</span><span class="w"> </span>~/simtofly_ws/ardupilot_gazebo/build
-</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>rm<span class="w"> </span>-rf<span class="w"> </span>*
-</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>cmake<span class="w"> </span>..<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>RelWithDebInfo
-</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>make<span class="w"> </span>-j4
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="nb">cd</span><span class="w"> </span>~/simtofly_ws/ardupilot_gazebo/build
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>rm<span class="w"> </span>-rf<span class="w"> </span>*
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>cmake<span class="w"> </span>..<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>RelWithDebInfo
+</span><span id="__span-32-4"><a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a>make<span class="w"> </span>-j4
 </span></code></pre></div></p>
 <hr />
 <h3 id="error-could-not-find-gz-sim8">Error: "Could not find gz-sim8" ⚠️<a class="headerlink" href="#error-could-not-find-gz-sim8" title="Permanent link">&para;</a></h3>
@@ -1824,37 +1869,37 @@
 <ol>
 <li><strong>Verify Gazebo installed:</strong></li>
 </ol>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>gz<span class="w"> </span>sim<span class="w"> </span>--version
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>gz<span class="w"> </span>sim<span class="w"> </span>--version
 </span></code></pre></div>
 <p>Should show: <code>Gazebo Sim, version 8.x.x</code></p>
 <p>If not, Gazebo installation failed. Repeat Gazebo installation steps above.</p>
 <ol>
 <li>
 <p><strong>Install missing dependencies:</strong>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
-</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>libgz-sim8-dev<span class="w"> </span>rapidjson-dev<span class="w"> </span>-y
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+</span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>libgz-sim8-dev<span class="w"> </span>rapidjson-dev<span class="w"> </span>-y
 </span></code></pre></div></p>
 </li>
 <li>
 <p><strong>Clean and rebuild:</strong>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="nb">cd</span><span class="w"> </span>~/simtofly_ws/ardupilot_gazebo/build
-</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>rm<span class="w"> </span>-rf<span class="w"> </span>*
-</span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>cmake<span class="w"> </span>..<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>RelWithDebInfo
-</span><span id="__span-33-4"><a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>make<span class="w"> </span>-j4
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="nb">cd</span><span class="w"> </span>~/simtofly_ws/ardupilot_gazebo/build
+</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>rm<span class="w"> </span>-rf<span class="w"> </span>*
+</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>cmake<span class="w"> </span>..<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>RelWithDebInfo
+</span><span id="__span-35-4"><a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>make<span class="w"> </span>-j4
 </span></code></pre></div></p>
 </li>
 </ol>
 <hr />
 <h3 id="error-wrong-gazebo-version">Error: Wrong Gazebo Version ⚠️<a class="headerlink" href="#error-wrong-gazebo-version" title="Permanent link">&para;</a></h3>
 <p><strong>Check installed version:</strong>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>dpkg<span class="w"> </span>-l<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>gz-sim
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>dpkg<span class="w"> </span>-l<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>gz-sim
 </span></code></pre></div></p>
 <p><strong>Should show:</strong> <code>gz-sim8</code> (Harmonic)</p>
 <p><strong>If shows <code>gz-sim7</code> (Garden):</strong></p>
 <p>You installed Garden instead of Harmonic. Uninstall and reinstall:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>remove<span class="w"> </span>gz-garden<span class="w"> </span>-y
-</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>autoremove<span class="w"> </span>-y
-</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>gz-harmonic<span class="w"> </span>-y
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>remove<span class="w"> </span>gz-garden<span class="w"> </span>-y
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>autoremove<span class="w"> </span>-y
+</span><span id="__span-37-3"><a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>gz-harmonic<span class="w"> </span>-y
 </span></code></pre></div></p>
 <p>Then retry plugin build from "Install Dependencies" section.</p>
 <hr />
@@ -1871,7 +1916,7 @@
 <h3 id="gazebo-window-doesnt-open">Gazebo window doesn't open<a class="headerlink" href="#gazebo-window-doesnt-open" title="Permanent link">&para;</a></h3>
 <p><strong>Cause:</strong> Missing graphics libraries or GPU drivers</p>
 <p><strong>Solution:</strong>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>libgl1-mesa-glx<span class="w"> </span>libglu1-mesa<span class="w"> </span>-y
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>libgl1-mesa-glx<span class="w"> </span>libglu1-mesa<span class="w"> </span>-y
 </span></code></pre></div></p>
 <p>Restart computer, try again.</p>
 <hr />
@@ -1880,15 +1925,15 @@
 <p><strong>Solution:</strong></p>
 <ol>
 <li><strong>Verify environment variable:</strong>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$GZ_SIM_SYSTEM_PLUGIN_PATH</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$GZ_SIM_SYSTEM_PLUGIN_PATH</span>
 </span></code></pre></div></li>
 </ol>
 <p>Should show path to your plugin build directory.</p>
 <ol>
 <li>
 <p><strong>If empty, re-add:</strong>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;export GZ_SIM_SYSTEM_PLUGIN_PATH=$HOME/simtofly_ws/ardupilot_gazebo/build:${GZ_SIM_SYSTEM_PLUGIN_PATH}&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
-</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a><span class="nb">source</span><span class="w"> </span>~/.bashrc
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;export GZ_SIM_SYSTEM_PLUGIN_PATH=$HOME/simtofly_ws/ardupilot_gazebo/build:${GZ_SIM_SYSTEM_PLUGIN_PATH}&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+</span><span id="__span-40-2"><a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a><span class="nb">source</span><span class="w"> </span>~/.bashrc
 </span></code></pre></div></p>
 </li>
 <li>
@@ -1909,8 +1954,8 @@
 <h3 id="could-not-find-iris_runwaysdf">"Could not find iris_runway.sdf"<a class="headerlink" href="#could-not-find-iris_runwaysdf" title="Permanent link">&para;</a></h3>
 <p><strong>Cause:</strong> GZ_SIM_RESOURCE_PATH not set correctly</p>
 <p><strong>Solution:</strong>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;export GZ_SIM_RESOURCE_PATH=$HOME/simtofly_ws/ardupilot_gazebo/models:$HOME/simtofly_ws/ardupilot_gazebo/worlds:${GZ_SIM_RESOURCE_PATH}&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
-</span><span id="__span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="nb">source</span><span class="w"> </span>~/.bashrc
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;export GZ_SIM_RESOURCE_PATH=$HOME/simtofly_ws/ardupilot_gazebo/models:$HOME/simtofly_ws/ardupilot_gazebo/worlds:${GZ_SIM_RESOURCE_PATH}&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+</span><span id="__span-41-2"><a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="nb">source</span><span class="w"> </span>~/.bashrc
 </span></code></pre></div></p>
 <p>Close and reopen terminal.</p>
 <hr />
@@ -1939,14 +1984,14 @@
 <ol>
 <li>
 <p><strong>Update graphics drivers:</strong>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
-</span><span id="__span-40-2"><a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+</span><span id="__span-42-2"><a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y
 </span></code></pre></div></p>
 </li>
 <li>
 <p><strong>Try software rendering:</strong>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">LIBGL_ALWAYS_SOFTWARE</span><span class="o">=</span><span class="m">1</span>
-</span><span id="__span-41-2"><a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>gz<span class="w"> </span>sim<span class="w"> </span>-v4<span class="w"> </span>-r<span class="w"> </span>iris_runway.sdf
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">LIBGL_ALWAYS_SOFTWARE</span><span class="o">=</span><span class="m">1</span>
+</span><span id="__span-43-2"><a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a>gz<span class="w"> </span>sim<span class="w"> </span>-v4<span class="w"> </span>-r<span class="w"> </span>iris_runway.sdf
 </span></code></pre></div></p>
 </li>
 <li>
