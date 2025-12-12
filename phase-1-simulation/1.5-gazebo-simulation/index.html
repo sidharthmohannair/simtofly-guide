@@ -1350,7 +1350,7 @@
 <li>✅ Control drone with 3D feedback</li>
 <li>✅ Verify physics simulation works</li>
 </ul>
-<p><strong>Time:</strong> 30-70 minutes</p>
+<p><strong>Time:</strong> 30-60 minutes</p>
 <hr />
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <p>Before starting, you must have completed:</p>
@@ -1440,19 +1440,20 @@
 <h3 id="verify-gazebo-installation">Verify Gazebo Installation<a class="headerlink" href="#verify-gazebo-installation" title="Permanent link">&para;</a></h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>gz<span class="w"> </span>sim<span class="w"> </span>--version
 </span></code></pre></div>
-<p><strong>Expected output:</strong>
+<p><strong>Expected output:</strong></p>
+<p><img alt="Verify Gazebo Installation" src="/docs/phase-1-simulation/images/1.5_gz_verification.png" /></p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Gazebo Sim, version 8.x.x
-</span></code></pre></div></p>
+</span></code></pre></div>
 <p>✅ <strong>Success:</strong> Shows Gazebo Sim version 8.x (Harmonic)</p>
 <hr />
 <h3 id="test-gazebo-launch">Test Gazebo Launch<a class="headerlink" href="#test-gazebo-launch" title="Permanent link">&para;</a></h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>gz<span class="w"> </span>sim<span class="w"> </span>-v4<span class="w"> </span>shapes.sdf
 </span></code></pre></div>
+<p><img alt="Start Gazebo First" src="/docs/phase-1-simulation/images/1.5_gz_first_open.png" /></p>
 <p><strong>What happens:</strong></p>
 <ul>
 <li>Gazebo window opens</li>
 <li>Shows world with various 3D shapes</li>
-<li>Select empty world</li>
 <li>May take 10-20 seconds on first launch</li>
 </ul>
 <p><strong>If window opens:</strong> ✅ Gazebo installed correctly</p>
@@ -1544,9 +1545,11 @@
 </span></code></pre></div>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;export GZ_SIM_RESOURCE_PATH=$HOME/simtofly_ws/ardupilot_gazebo/models:$HOME/simtofly_ws/ardupilot_gazebo/worlds:${GZ_SIM_RESOURCE_PATH}&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
 </span></code></pre></div></p>
-<p><strong>What these do:</strong>
-- First line: Tells Gazebo where to find the ArduPilot plugin
-- Second line: Tells Gazebo where to find drone models and simulation worlds</p>
+<p><strong>What these do:</strong></p>
+<ul>
+<li>First line: Tells Gazebo where to find the ArduPilot plugin</li>
+<li>Second line: Tells Gazebo where to find drone models and simulation worlds</li>
+</ul>
 <hr />
 <h3 id="apply-changes">Apply Changes<a class="headerlink" href="#apply-changes" title="Permanent link">&para;</a></h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="nb">source</span><span class="w"> </span>~/.bashrc
@@ -1564,16 +1567,20 @@
 <p>Open <strong>Terminal 1:</strong>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>gz<span class="w"> </span>sim<span class="w"> </span>-v4<span class="w"> </span>-r<span class="w"> </span>iris_runway.sdf
 </span></code></pre></div></p>
-<p><strong>Command breakdown:</strong>
-- <code>gz sim</code> — Launch Gazebo simulator
-- <code>-v4</code> — Verbose output (helpful for troubleshooting)
-- <code>-r</code> — Run simulation immediately (not paused)
-- <code>iris_runway.sdf</code> — Quadcopter on runway world</p>
+<p><strong>Command breakdown:</strong></p>
+<ul>
+<li><code>gz sim</code> — Launch Gazebo simulator</li>
+<li><code>-v4</code> — Verbose output (helpful for troubleshooting)</li>
+<li><code>-r</code> — Run simulation immediately (not paused)</li>
+<li><code>iris_runway.sdf</code> — Quadcopter on runway world</li>
+</ul>
 <p><strong>This takes:</strong> 10-20 seconds to load.</p>
-<p><strong>Expected result:</strong>
-- Gazebo window opens
-- Shows runway environment
-- Drone (iris quadcopter) visible on runway</p>
+<p><strong>Expected result:</strong></p>
+<ul>
+<li>Gazebo window opens</li>
+<li>Shows runway environment</li>
+<li>Drone (iris quadcopter) visible on runway</li>
+</ul>
 <p>✅ <strong>Success:</strong> See drone in Gazebo world</p>
 <hr />
 <h3 id="start-sitl">Start SITL<a class="headerlink" href="#start-sitl" title="Permanent link">&para;</a></h3>
@@ -1600,6 +1607,7 @@
 <p>✅ <strong>Success:</strong> Shows "Received sensor data from Gazebo" and <code>STABILIZE&gt;</code> prompt</p>
 <hr />
 <h3 id="verify-connection">Verify Connection<a class="headerlink" href="#verify-connection" title="Permanent link">&para;</a></h3>
+<p><img alt="Launch SITL with Gazebo" src="/docs/phase-1-simulation/images/1.5_gz_with_SITL.png" /></p>
 <p><strong>In Gazebo window:</strong>
 - Drone should be sitting on runway
 - Propellers visible</p>
@@ -1623,18 +1631,30 @@
 - Climbs to 10 meters
 - Physics looks realistic (smooth acceleration)</p>
 <p><strong>This takes:</strong> 10-20 seconds to reach altitude.</p>
+<p><img alt="Test Flight in Gazebo" src="/docs/phase-1-simulation/images/1.5_gz_with_SITL_test.png" /></p>
 <p>✅ <strong>Success:</strong> Drone flies in Gazebo, hovers at 10m</p>
 <hr />
 <h3 id="navigate-in-gazebo">Navigate in Gazebo<a class="headerlink" href="#navigate-in-gazebo" title="Permanent link">&para;</a></h3>
-<p><strong>Move forward (North):</strong>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>guided<span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>-10
-</span></code></pre></div></p>
-<p><strong>Watch in Gazebo:</strong>
-- Drone tilts forward
-- Moves to new position
-- Realistic flight dynamics</p>
-<p><strong>Wait for movement to complete</strong> (~10 seconds)</p>
+<p><strong>Using MAVProxy map window (easiest method):</strong></p>
+<ol>
+<li>In the MAVProxy map window, right-click where you want drone to go</li>
+<li>Select <code>Fly to</code></li>
+<li>Drone automatically flies to position and holds</li>
+</ol>
+<p><strong>Watch in Gazebo:</strong></p>
+<ul>
+<li>Drone tilts in flight direction</li>
+<li>Moves smoothly to new position</li>
+<li>Realistic flight physics</li>
+<li>Automatically holds position when reached</li>
+</ul>
+<p><strong>Try clicking different locations on the map to see the drone respond!</strong></p>
 <hr />
+<p><strong>Return to Launch:</strong>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>mode<span class="w"> </span>RTL
+</span></code></pre></div></p>
+<p>Drone automatically returns to takeoff position.</p>
+<p><strong>OR</strong></p>
 <h3 id="land">Land<a class="headerlink" href="#land" title="Permanent link">&para;</a></h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>land
 </span></code></pre></div>
@@ -1646,21 +1666,29 @@
 <p>✅ <strong>Success:</strong> Complete flight in 3D simulation</p>
 <hr />
 <h2 id="understanding-gazebo-interface">🎨 Understanding Gazebo Interface<a class="headerlink" href="#understanding-gazebo-interface" title="Permanent link">&para;</a></h2>
+<p><img alt="Gazebo Interface" src="/docs/phase-1-simulation/images/1.5_gz_interface.png" /></p>
 <h3 id="main-window-elements">Main Window Elements<a class="headerlink" href="#main-window-elements" title="Permanent link">&para;</a></h3>
-<p><strong>Top toolbar:</strong>
-- <strong>Play/Pause button</strong> — Control simulation time
-- <strong>Real-time factor</strong> — Simulation speed (1.0 = real-time)
-- <strong>Step button</strong> — Advance one frame at a time</p>
-<p><strong>Left panel (Entity Tree):</strong>
-- World tree — List of objects in simulation
-- Entity details — Properties of selected object
-- Can select drone, runway, lights, etc.</p>
-<p><strong>3D viewport (Center):</strong>
-- Main visualization area
-- Shows drone, environment, physics</p>
-<p><strong>Right panel (Component Inspector):</strong>
-- Details of selected entity
-- Can modify properties during simulation</p>
+<p><strong>Top Left Toolbar:</strong></p>
+<ul>
+<li>Shape and transform tools</li>
+<li>Screenshot</li>
+</ul>
+<p><strong>Right Panel:</strong></p>
+<ul>
+<li><strong>Top:</strong> Model properties (pose, settings)</li>
+<li><strong>Bottom:</strong> Entity Tree (list of objects)</li>
+<li>Select objects to inspect and modify</li>
+</ul>
+<p><strong>Bottom Left:</strong></p>
+<ul>
+<li>Play/Pause button</li>
+<li>Real-time factor (simulation speed)</li>
+</ul>
+<p><strong>Center:</strong></p>
+<ul>
+<li>3D visualization</li>
+<li>Main view of drone and environment</li>
+</ul>
 <hr />
 <h3 id="camera-controls">Camera Controls<a class="headerlink" href="#camera-controls" title="Permanent link">&para;</a></h3>
 <p>Use mouse to navigate the view:</p>
@@ -1673,14 +1701,14 @@
 </ul>
 <hr />
 <h3 id="useful-view-controls">Useful View Controls<a class="headerlink" href="#useful-view-controls" title="Permanent link">&para;</a></h3>
-<p><strong>Reset camera to drone:</strong>
-1. Click on drone in left panel (Entity Tree)
-2. Press <code>R</code> key — Camera focuses on drone</p>
-<p><strong>Toggle wireframe mode:</strong>
-- View → Wireframe (shows 3D mesh structure)</p>
-<p><strong>Show/hide panels:</strong>
-- Window → Entity Tree (toggle left panel)
-- Window → Component Inspector (toggle right panel)</p>
+<ol>
+<li>
+<p>Right-click on <code>iris_with_gimbal</code> in Entity Tree (right panel, bottom section)</p>
+</li>
+<li>
+<p>Many options like <code>Move To</code>, <code>Follow Options</code> (Follow, Free Look, Look At), <code>Track</code>, <code>Remove</code>, <code>Copy</code>, <code>Paste</code>, <code>View</code> ( Center of Mass, Collisions, Inertia, Joints, Frams, Transparent, Wireframe)</p>
+</li>
+</ol>
 <hr />
 <h2 id="different-gazebo-worlds">🌍 Different Gazebo Worlds<a class="headerlink" href="#different-gazebo-worlds" title="Permanent link">&para;</a></h2>
 <h3 id="available-worlds">Available Worlds<a class="headerlink" href="#available-worlds" title="Permanent link">&para;</a></h3>
