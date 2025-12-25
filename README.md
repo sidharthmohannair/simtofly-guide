@@ -1,234 +1,277 @@
-# SimToFly — Complete Drone Autonomy Guide
+# SimToFly — Drone Autonomy Guide
 
-![Cover Image](/assets/images/cover_image.png)
+![SimToFly Cover](assets/images/cover_image.png)
 
 <p align="center">
   <b>From Simulation to Flight</b><br>
-  Your complete path to autonomous drones with ROS2 and ArduPilot
+  Complete tutorials for autonomous drones with ROS2 and ArduPilot
 </p>
 
 <p align="center">
-  <a href="#-what-youll-learn">What You'll Learn</a> •
-  <a href="#-tutorial-phases">Tutorial Phases</a> •
-  <a href="#-getting-started">Getting Started</a>
+  <a href="https://simtofly.github.io/simtofly-guide/">Documentation</a> •
+  <a href="#getting-started">Getting Started</a> •
+  <a href="#tutorial-phases">Tutorial Phases</a> •
+  <a href="#community">Community</a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/simtofly/simtofly-guide/stargazers"><img src="https://img.shields.io/github/stars/simtofly/simtofly-guide?style=social" alt="GitHub Stars"></a>
+  <a href="https://github.com/simtofly/simtofly-guide/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a>
+  <a href="https://simtofly.github.io/simtofly-guide/"><img src="https://img.shields.io/badge/docs-live-brightgreen" alt="Documentation"></a>
 </p>
 
 ---
 
-> **📖 [Visit Documentation Website](https://simtofly.github.io/simtofly-guide/)** — Professional docs with search, dark mode, and mobile support
+## Overview
 
----
-## 🎯 What You'll Learn
+Learn autonomous drone development from simulation to real hardware deployment using modern tools: ROS2, ArduPilot SITL, and Gazebo Harmonic.
 
-This comprehensive tutorial takes you from zero to autonomous drone flight:
+**Who this is for:**
+- Beginners with no prior ROS or ArduPilot experience
+- Developers wanting to learn modern drone autonomy stack
+- Students and hobbyists building autonomous drones
+- Anyone interested in transitioning from simulation to real hardware
 
-- ✅ **ArduPilot SITL** — Master simulation before touching hardware
-- ✅ **Gazebo Integration** — Realistic 3D simulation with physics
-- ✅ **ROS2 + MAVROS** — Connect ArduPilot to Robot Operating System
-- ✅ **Companion Computer** — Setup Raspberry Pi for onboard processing
-- ✅ **Real Hardware Deployment** — Deploy and fly your actual drone
-
-**Beginner-friendly** • **Step-by-step verification** • **Tested on real hardware**
-
----
-
-## 📚 Tutorial Phases
-
-### Phase 1: Simulation Mastery 🖥️ ✅
-*Master the fundamentals in a safe, virtual environment*
-
-- ✅ Prerequisites and environment setup
-- ✅ ArduPilot SITL installation and first launch
-- ✅ MAVProxy command-line control
-- ✅ Gazebo Harmonic 3D simulation integration
-- ✅ First autonomous waypoint mission
-
-**Status:** ✅ Complete | [Start Phase 1 →](docs/phase-1-simulation/README.md)
+**What you'll build:**
+- Complete SITL simulation environment
+- 3D visualization with Gazebo Harmonic
+- ROS2 integration with MAVROS
+- Companion computer deployment on Raspberry Pi
+- Real autonomous flight system
 
 ---
 
-### Phase 2: ROS2 Integration 🤖
-*Connect your drone to the Robot Operating System*
+## Documentation
 
+📖 **[Visit Documentation Website](https://simtofly.github.io/simtofly-guide/)**
+
+Professional documentation with search, dark mode, mobile support, and video tutorials.
+
+---
+
+## Tutorial Phases
+
+### Phase 1: Simulation Mastery ✅
+
+Master drone fundamentals in safe virtual environment.
+
+**Topics:**
+- Prerequisites and environment setup
+- ArduPilot SITL installation
+- MAVProxy command-line control
+- Gazebo Harmonic 3D simulation
+- First autonomous waypoint mission
+
+**Status:** Complete  
+**Time:** 6-8 hours  
+**Start:** [Phase 1 Documentation](docs/phase-1-simulation/README.md)
+
+---
+
+### Phase 2: ROS2 Integration 🚧
+
+Connect ArduPilot to Robot Operating System.
+
+**Topics:**
 - ROS2 Humble installation
 - MAVROS setup and configuration
-- Understanding topics, services, and messages
-- Building custom ROS2 control nodes
+- Understanding topics and services
+- Custom ROS2 control nodes
 - Autonomous missions via ROS2
 
-**Status:** 🚧 Phase 2 in development
+**Status:** In Development  
+**Expected:** February 2026
 
 ---
 
-### Phase 3: Companion Computer 🔧
-*Setup onboard processing with Raspberry Pi*
+### Phase 3: Companion Computer 📋
 
-- Raspberry Pi configuration for drones
+Deploy ROS2 on Raspberry Pi for onboard processing.
+
+**Topics:**
+- Raspberry Pi configuration
 - Serial connection to flight controller
-- Deploying ROS2 nodes on companion computer
+- ROS2 node deployment
 - Hardware-in-the-loop testing
-- Network communication setup
+- Network communication
 
-**Status:** 📋 Planned
+**Status:** Planned  
+**Expected:** March 2026
 
 ---
 
-### Phase 4: Real Hardware 🚁
-*Deploy everything on your actual drone*
+### Phase 4: Real Hardware 📋
 
+Deploy complete system on actual drone.
+
+**Topics:**
 - Hardware assembly and wiring
-- Pre-flight safety checklist
-- Ground testing procedures
+- Pre-flight safety procedures
+- Ground testing
 - First real flight test
 - Complete mission deployment
 
-**Status:** 📋 Planned
+**Status:** Planned  
+**Expected:** April 2026
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
-Before starting, you need:
+**Hardware:**
+- Computer with 8GB RAM minimum (16GB recommended)
+- Ubuntu 22.04 LTS (native or VM)
+- 30GB free disk space
+- Stable internet connection
 
-- **Computer:** Ubuntu 22.04 (native or VM), 8GB RAM minimum
-- **Time:** Plan for 2-4 hours per phase
-- **Attitude:** Patience and willingness to learn
+**Knowledge:**
+- Basic terminal/command-line familiarity
+- No prior ROS or ArduPilot experience required
 
-**No prior ROS experience required** — we teach everything from scratch.
+### Quick Start
 
-### Start Here
+1. **Check system requirements:** [Prerequisites Guide](docs/phase-1-simulation/1.1-prerequisites.md)
+2. **Set up environment:** [Environment Setup](docs/phase-1-simulation/1.2-environment-setup.md)
+3. **Start learning:** [Phase 1 Overview](docs/phase-1-simulation/README.md)
 
-👉 **[Begin with Phase 1: Simulation Mastery](docs/phase-1-simulation/README.md)**
-
-Each phase builds on the previous, so follow in order.
-
----
-
-## ✅ Verified Hardware
-
-All tutorials are tested on real hardware:
-
-- **Flight Controller:** Cube Orange / Pixhawk family
-- **Companion Computer:** Raspberry Pi 4 (4GB+)
-- **Software Stack:**
-  - Ubuntu 22.04 LTS
-  - ROS2 Humble
-  - ArduPilot Copter 4.5.x
-  - Gazebo Garden
-  - MAVROS 2.x
-
-**Last verified:** December 2024
+**👉 [Begin Phase 1: Simulation Mastery](docs/phase-1-simulation/README.md)**
 
 ---
 
-## 🗂️ Repository Structure
+## Verified System
+
+All tutorials tested and verified on:
+
+**Software Stack:**
+- Ubuntu 22.04 LTS
+- ArduPilot Copter 4.5.7
+- ROS2 Humble
+- Gazebo Harmonic
+- MAVProxy 1.8+
+
+**Hardware (Phase 4):**
+- Flight Controller: Cube Orange / Pixhawk 6X
+- Companion Computer: Raspberry Pi 4 (4GB+)
+- Frame: Various quadcopter frames tested
+
+**Last verified:** December 2025
+
+---
+
+## Repository Structure
+
 ```
 simtofly-guide/
 ├── docs/
 │   ├── phase-1-simulation/      # SITL and Gazebo tutorials
 │   ├── phase-2-ros2/            # ROS2 integration guides
 │   ├── phase-3-companion/       # Raspberry Pi setup
-│   └── phase-4-hardware/        # Real drone deployment
-├── assets/
-│   ├── images/                  # Screenshots and diagrams
-│   └── videos/                  # Tutorial video clips
-└── README.md                    # You are here
+│   ├── phase-4-hardware/        # Real drone deployment
+│   └── assets/
+│       └── images/              # Screenshots and diagrams
+├── mkdocs.yml                   # Documentation configuration
+└── README.md                    # This file
 ```
 
 ---
 
-## 🤝 About SimToFly
+## Community
 
-**SimToFly** bridges the gap between simulation and real-world drone deployment.
+### Get Help
 
-Most tutorials stop at simulation or skip critical steps. We provide:
+- **Questions:** [GitHub Discussions](https://github.com/simtofly/simtofly-guide/discussions)
+- **Bug Reports:** [GitHub Issues](https://github.com/simtofly/simtofly-guide/issues)
+- **Documentation:** [Website](https://simtofly.github.io/simtofly-guide/)
 
-- **Complete workflow** — Simulation through real flight
-- **Beginner-friendly** — Assumes zero prior knowledge
-- **Verified steps** — Every command tested on actual hardware
-- **Modern stack** — ROS2 (not ROS1), latest ArduPilot
-- **Safety-first** — Proper testing progression
+### Contribute
 
-Created by [@sidharthmohannair](https://github.com/sidharthmohannair)
+We welcome contributions! Ways to help:
+- Report bugs or errors in tutorials
+- Suggest improvements or new topics
+- Submit fixes via pull requests
+- Share your success stories
+- Help other learners in discussions
 
-**Other SimToFly Repositories:**
+See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
+### Stay Updated
+
+- ⭐ Star this repository for updates
+- Watch for new releases
+- Follow [@sidharthmohannair](https://github.com/sidharthmohannair)
+
+---
+
+## Related Repositories
+
+**SimToFly Ecosystem:**
 - [simtofly-ros2](https://github.com/simtofly/simtofly-ros2) — ROS2 packages and examples *(coming soon)*
 - [simtofly-setup](https://github.com/simtofly/simtofly-setup) — Automated setup scripts *(coming soon)*
 
 ---
 
-## 🌟 Why SimToFly?
+## License
 
-**What makes this different:**
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-| Feature | SimToFly | Others |
-|---------|----------|--------|
-| ROS Version | ROS2 (current) | Mostly ROS1 (legacy) |
-| Hardware Validation | ✅ Tested on real drones | ⚠️ Simulation only |
-| Companion Computer | ✅ Complete Raspberry Pi setup | ⚠️ Brief mentions |
-| Beginner-Friendly | ✅ Assumes zero knowledge | ⚠️ Assumes experience |
-| Maintenance | ✅ Actively updated | ⚠️ Often outdated |
+### Permissions
 
----
+- Commercial use
+- Modification
+- Distribution
+- Private use
 
-## 📖 Documentation Status
+### Conditions
 
-🚧 **Phase 1 is under active development**
+- License and copyright notice must be included
 
-Follow this repository or ⭐ star it to get notified when sections are published.
+### Limitations
 
-**Estimated timeline:**
-- Phase 1: January 2026
-- Phase 2: February 2026
-- Phase 3: March 2026
-- Phase 4: April 2026
+- No Liability
+- No Warranty
+
+**Note:** While attribution is not legally required, it is appreciated and helps the project grow.
 
 ---
 
-## 💬 Community & Support
-
-- **Questions?** [Open an issue](https://github.com/simtofly/simtofly-guide/issues)
-- **Found an error?** [Submit a pull request](https://github.com/simtofly/simtofly-guide/pulls)
-- **Want to contribute?** See [CONTRIBUTING.md](CONTRIBUTING.md)
-
----
-
-## 📜 License
-
-This tutorial is released under the **MIT License** — see [LICENSE](LICENSE) for details.
-
-You are free to:
-- ✅ Use for personal or commercial projects
-- ✅ Modify and adapt
-- ✅ Share and distribute
-
-**Attribution appreciated but not required.**
-
----
-
-## 🙏 Acknowledgments
+## Acknowledgments
 
 Built with knowledge from:
 - [ArduPilot](https://ardupilot.org/) community and documentation
 - [ROS2](https://docs.ros.org/) official guides
 - [MAVROS](https://github.com/mavlink/mavros) maintainers
-- Countless forum posts and GitHub issues from the community
+- Open-source drone community
 
-Special thanks to everyone who contributes to open-source drone software.
+Special thanks to everyone who contributes to open-source robotics and drone software.
+
+---
+
+## About
+
+**Author:** [Sidharth Mohan Nair](https://github.com/sidharthmohannair)
+
+**Project Goals:**
+- Make drone autonomy accessible to beginners
+- Provide complete workflow from simulation to hardware
+- Use modern tools (ROS2, latest ArduPilot)
+- Verify all tutorials on real hardware
+- Maintain active documentation
+
+
 
 ---
 
 <p align="center">
   <b>Ready to start your journey?</b><br>
-  👉 <a href="docs/phase-1-simulation/README.md">Begin Phase 1: Simulation Mastery</a>
+  <a href="docs/phase-1-simulation/README.md">📚 Begin Phase 1: Simulation Mastery</a>
 </p>
-
----
 
 <p align="center">
   Made with ❤️ for the drone community<br>
   <a href="https://github.com/simtofly">SimToFly</a> • 
   <a href="https://github.com/sidharthmohannair">@sidharthmohannair</a>
 </p>
+
+---
