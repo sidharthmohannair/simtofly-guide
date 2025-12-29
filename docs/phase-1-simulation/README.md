@@ -16,6 +16,9 @@ In Phase 1, you'll learn:
 
 **No hardware needed** — everything runs on your computer.
 
+![Phase-1 Simulation Architecture](images/0.0_phase1-architecture.svg)
+
+
 **Time:** 4-6 hours total (spread over multiple sessions)
 
 ---
@@ -120,7 +123,7 @@ If you get stuck:
    - Error message (full text)
    - Your Ubuntu version
 
-We're here to help! 🚁
+We're here to help! 
 
 ---
 
