@@ -117,5 +117,9 @@ nav:
   
   - Phase 4 - Hardware:
     - phase-4-hardware/README.md
-  
+
+  - Appendix:
+    - Ubuntu Installation: appendix/ubuntu-install.md
+    - Terminal Customization: appendix/terminal-customization.md  
+    
 copyright: Copyright &copy; 2025 SimToFly - Created by Sidharth Mohan Nair
